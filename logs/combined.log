@@ -57,3 +57,43 @@
 {"level":"info","message":"listening on 6600"}
 {"level":"info","message":"listening on 6600"}
 {"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Missing required param: amount."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Invalid integer: 19.95"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Invalid value type: {:lastName=>\"shaikh\", :bio=>\"...\", :id=>\"9\", :firstName=>\"jawad\", :dateOfBirth=>\"1317826080\", :updatedAt=>\"1712343192\", :phoneNumber=>\"03452987876\", :UserAddress=>{:\"0\"=>{:id=>\"1\", :userId=>\"9\", :country=>\"pakistan\", :createdAt=>\"1712343192\", :state=>\"sindh\", :updatedAt=>\"1712343192\", :city=>\"karachi\", :streetAddress=>\"123 street\"}}, :loginMethod=>\"PHONE_NUMBER\", :role=>\"USER\", :isProfileComplete=>\"false\", :createdAt=>\"1712339322\", :email=>\"jawadshaikh@gmail.com\", :gender=>\"MALE\"} must be a string"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Invalid value type: {:lastName=>\"shaikh\", :firstName=>\"jawad\", :email=>\"jawadshaikh@gmail.com\", :userId=>\"9\", :phoneNumber=>\"03452987876\"} must be a string"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Invalid value type: {:lastName=>\"shaikh\", :firstName=>\"jawad\", :email=>\"jawadshaikh@gmail.com\", :userId=>\"9\", :phoneNumber=>\"03452987876\"} must be a string"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}

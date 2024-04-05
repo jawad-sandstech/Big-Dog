@@ -17,6 +17,12 @@ const updateProfile = Joi.object({
     bio: Joi.string().required(),
     email: Joi.string().email().optional(),
     phoneNumber: Joi.string().optional(),
+    address: Joi.object({
+      country: Joi.string().required(),
+      state: Joi.string().required(),
+      city: Joi.string().required(),
+      streetAddress: Joi.string().required(),
+    }).required(),
   }),
 });
 

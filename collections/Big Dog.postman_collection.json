@@ -1,0 +1,1105 @@
+{
+	"info": {
+		"_postman_id": "869c3844-a092-4ac4-ab7a-f94ee9265291",
+		"name": "Big Dog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34047242"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login With Google",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"john@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/google",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"auth",
+										"google"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login With Facebook",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"john@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/facebook",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"auth",
+										"facebook"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login With Phone Number",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phoneNumber\": \"03452987875\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/phone-number",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"auth",
+										"phone-number"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Login With Phone Number",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"phoneNumber\": \"03452987875\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/phone-number",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"auth",
+												"phone-number"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "98"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"62-FbB/Vnoy4MQjzkl3bT844KGQwCU\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 17:48:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": null,\n    \"error\": null,\n    \"message\": \"OTP sent successfully.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login With Email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"ayaz@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/email",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"auth",
+										"email"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Login With Email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"john@gmail.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/email",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"auth",
+												"email"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "98"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"62-FbB/Vnoy4MQjzkl3bT844KGQwCU\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 17:41:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": null,\n    \"error\": null,\n    \"message\": \"OTP sent successfully.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Verify OTP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"pm.collectionVariables.set(\"token\", jsonData.data.token);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phoneNumber\": \"03452987875\",\r\n    \"otp\": \"994903\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/verify-otp",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"auth",
+										"verify-otp"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Verify OTP",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"john@gmail.com\",\r\n    \"otp\": \"320788\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/verify-otp",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"auth",
+												"verify-otp"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "342"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"156-aKSwM9xt7AiEiQ3M2+LVf7wvPHA\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 17:42:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImZpcnN0TmFtZSI6bnVsbCwibGFzdE5hbWUiOm51bGwsInJvbGUiOm51bGwsImlhdCI6MTcxMjMzODk2OX0.6xeubx7laGM2hGB5iLUUB8GigHrGhU69ReK3kyP0YTM\",\n        \"user\": {\n            \"userId\": 7,\n            \"firstName\": null,\n            \"lastName\": null,\n            \"role\": null\n        }\n    },\n    \"error\": null,\n    \"message\": \"OTP verified.\"\n}"
+								},
+								{
+									"name": "Verify OTP",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"phoneNumber\": \"03452987875\",\r\n    \"otp\": \"994903\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/verify-otp",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"auth",
+												"verify-otp"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "342"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"156-sBUtxFi97D+ejiDsPLRgYVKWx4Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 17:49:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjksImZpcnN0TmFtZSI6bnVsbCwibGFzdE5hbWUiOm51bGwsInJvbGUiOm51bGwsImlhdCI6MTcxMjMzOTM4MX0.2GGxisBJBW5dgs1rlbuV-SUdo3kAGF__5Squ8nWNPC8\",\n        \"user\": {\n            \"userId\": 9,\n            \"firstName\": null,\n            \"lastName\": null,\n            \"role\": null\n        }\n    },\n    \"error\": null,\n    \"message\": \"OTP verified.\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Resend OTP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phoneNumber\": \"03452987875\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/resend-otp",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"auth",
+										"resend-otp"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Resend OTP",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"ayaz@gmail.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/resend-otp",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"auth",
+												"resend-otp"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "99"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"63-wOKHY+ihP0umBxOZdQqdrMZU8uE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 17:48:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": null,\n    \"error\": null,\n    \"message\": \"OTP resent successfully\"\n}"
+								},
+								{
+									"name": "Resend OTP",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"phoneNumber\": \"03452987875\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/auth/resend-otp",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"auth",
+												"resend-otp"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "99"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"63-wOKHY+ihP0umBxOZdQqdrMZU8uE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 17:49:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": null,\n    \"error\": null,\n    \"message\": \"OTP resent successfully\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Role",
+					"item": [
+						{
+							"name": "Update Role",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"USER\" // valid options: USER, DRIVER\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/role",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"role"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"role\": \"USER\" // valid options: USER, DRIVER\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/role",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"role"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "102"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"66-b9qzuIKKi1SxTBUDhvDlyS8sJJs\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 18:17:54 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": null,\n    \"error\": null,\n    \"message\": \"Role updated successfully.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Me",
+					"item": [
+						{
+							"name": "Get My Profile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/me",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/me",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"me"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "347"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"15b-L/at8GsDdMp3fn5nYjP//2dtAfo\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 18:41:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": {\n        \"id\": 9,\n        \"firstName\": null,\n        \"lastName\": null,\n        \"dateOfBirth\": null,\n        \"bio\": null,\n        \"gender\": null,\n        \"role\": \"USER\",\n        \"loginMethod\": \"PHONE_NUMBER\",\n        \"email\": null,\n        \"phoneNumber\": \"03452987875\",\n        \"isProfileComplete\": false,\n        \"createdAt\": \"2024-04-05T17:48:42.937Z\",\n        \"updatedAt\": \"2024-04-05T18:17:54.422Z\"\n    },\n    \"error\": null,\n    \"message\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Update My Profile",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"jawad\",\r\n    \"lastName\": \"shaikh\",\r\n    \"dateOfBirth\": \"2011-10-05T14:48:00.000Z\",\r\n    \"gender\": \"MALE\", // MALE, FEMALE, OTHER\r\n    \"bio\": \"...\",\r\n    \"email\": \"jawadshaikh@gmail.com\",\r\n    \"phoneNumber\": \"03452987876\",\r\n    \"address\": {\r\n        \"country\": \"pakistan\",\r\n        \"state\": \"sindh\",\r\n        \"city\": \"karachi\",\r\n        \"streetAddress\": \"123 street\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/me",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"firstName\": \"jawad\",\r\n    \"lastName\": \"shaikh\",\r\n    \"dateOfBirth\": \"2011-10-05T14:48:00.000Z\",\r\n    \"gender\": \"MALE\", // MALE, FEMALE, OTHER\r\n    \"bio\": \"...\",\r\n    \"email\": \"jawadshaikh@gmail.com\",\r\n    \"phoneNumber\": \"03452987876\",\r\n    \"address\": {\r\n        \"country\": \"pakistan\",\r\n        \"state\": \"sindh\",\r\n        \"city\": \"karachi\",\r\n        \"streetAddress\": \"123 street\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/me",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"me"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "97"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"61-k26VsWaK7TvxG6NFvlKEfupwb2o\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 18:53:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": null,\n    \"error\": null,\n    \"message\": \"Updated Successfully.\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Packages",
+			"item": [
+				{
+					"name": "Packages",
+					"item": [
+						{
+							"name": "Get All Packages",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/packages",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"packages"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/packages",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"packages"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "830"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"33e-Ygcz/CFMSbsuiyfa8d0JBuT6lmM\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 05 Apr 2024 22:43:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Silver Package\",\n            \"description\": \"2 rescue charges per year\\r\\n$3.50 per mile charge\",\n            \"price\": 19.95,\n            \"rescueChargesPerYear\": 2,\n            \"pricePerMile\": 3.5,\n            \"createdAt\": \"2024-04-05T12:08:37.000Z\",\n            \"updatedAt\": \"2024-04-05T12:08:39.000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Gold Package\",\n            \"description\": \"2 rescue charges per year\\r\\n$3.00 per mile charge\",\n            \"price\": 29.95,\n            \"rescueChargesPerYear\": 2,\n            \"pricePerMile\": 3,\n            \"createdAt\": \"2024-04-05T12:08:42.000Z\",\n            \"updatedAt\": \"2024-04-05T12:08:44.000Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Platinum Package\",\n            \"description\": \"3 rescue charges per year\\nemergency ride benefits\\namenities during wait, etc\\n$2.00 per mile charge\",\n            \"price\": 49.95,\n            \"rescueChargesPerYear\": 2,\n            \"pricePerMile\": 2,\n            \"createdAt\": \"2024-04-05T12:08:46.000Z\",\n            \"updatedAt\": \"2024-04-05T12:08:48.000Z\"\n        }\n    ],\n    \"error\": null,\n    \"message\": null\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User Packages",
+			"item": [
+				{
+					"name": "User Packages",
+					"item": [
+						{
+							"name": "Get Current Package",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Buy Package",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"packageId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/user-packages",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"user-packages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Package",
+							"request": {
+								"method": "PATCH",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:6600",
+			"type": "string"
+		},
+		{
+			"key": "VERSION",
+			"value": "v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "...",
+			"type": "string"
+		}
+	]
+}

@@ -46,15 +46,15 @@ model Users {
 }
 
 model UserAddress {
-  id        Int      @id @default(autoincrement())
-  userId    Int
-  country   String
-  state     String
-  city      String
-  address   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  User      Users    @relation(fields: [userId], references: [id])
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  country       String
+  state         String
+  city          String
+  streetAddress String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  User          Users    @relation(fields: [userId], references: [id])
 }
 
 model UserOTP {
@@ -100,6 +100,7 @@ model Packages {
   id                   Int            @id @default(autoincrement())
   name                 String
   description          String
+  price                Float
   rescueChargesPerYear Int
   pricePerMile         Float
   createdAt            DateTime       @default(now())

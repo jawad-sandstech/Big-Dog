@@ -31,6 +31,11 @@ const authRequired = async (req, res, next) => {
       return res.status(response.status.code).json(response);
     }
 
+    if (!user.role) {
+      const response = badRequestResponse('Complete your profile first.');
+      return res.status(response.status.code).json(response);
+    }
+
     req.user = decodedUser;
     next();
   });

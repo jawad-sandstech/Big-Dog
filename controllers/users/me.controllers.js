@@ -32,7 +32,7 @@ const getMyProfile = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   const { userId } = req.user;
-  const data = req.body;
+  const { address, ...data } = req.body;
 
   try {
     const user = await prisma.users.findFirst({
@@ -64,7 +64,16 @@ const updateProfile = async (req, res) => {
 
     await prisma.users.update({
       where: { id: userId },
-      data,
+      data: {
+        ...data,
+      },
+    });
+
+    await prisma.userAddress.create({
+      data: {
+        userId,
+        ...address,
+      },
     });
 
     const response = updateSuccessResponse();
