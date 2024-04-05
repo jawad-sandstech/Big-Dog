@@ -1,0 +1,329 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+model Users {
+  id                    Int                 @id @default(autoincrement())
+  firstName             String?
+  lastName              String?
+  dateOfBirth           DateTime?
+  bio                   String?
+  gender                GENDERS?
+  roleId                Int?
+  loginMethod           LOGIN_METHOS
+  email                 String?
+  isEmailVerified       Boolean             @default(false)
+  phoneNumber           String?
+  isPhoneNumberVerified Boolean             @default(false)
+  roleSelected          Boolean             @default(false)
+  isProfileComplete     Boolean             @default(false)
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt
+  Role                  Roles?              @relation(fields: [roleId], references: [id])
+  UserAddress           UserAddress[]
+  UserOTP               UserOTP[]
+  UserStatus            UserStatus[]
+  UserVehicles          UserVehicles[]
+  DriverDetails         DriverDetails[]
+  UserPackages          UserPackages[]
+  UserRescueCharges     UserRescueCharges[]
+  UserNotifications     UserNotifications[]
+  UserPreference        UserPreference[]
+  Messages              Messages[]
+  JobRequests           JobRequests[]
+  JobOffers             JobOffers[]
+  Orders                Orders[]
+  Feedback              Feedback[]
+  Genders               Genders?            @relation(fields: [gendersId], references: [id])
+  gendersId             Int?
+}
+
+model Genders {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Users     Users[]
+}
+
+model UserAddress {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  country   String
+  state     String
+  city      String
+  address   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      Users    @relation(fields: [userId], references: [id])
+}
+
+model Roles {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  Users     Users[]
+}
+
+model UserOTP {
+  id                 Int       @id @default(autoincrement())
+  userId             Int
+  otp                String
+  otpType            OTPT_TYPE
+  isExpired          Boolean
+  expirationDateTime DateTime
+  createdAt          DateTime  @default(now())
+  User               Users     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model UserStatus {
+  id       Int      @id @default(autoincrement())
+  userId   Int
+  isOnline Boolean
+  lastSeen DateTime
+  User     Users    @relation(fields: [userId], references: [id])
+}
+
+model UserVehicles {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  car       String
+  model     String
+  about     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      Users    @relation(fields: [userId], references: [id])
+}
+
+model DriverDetails {
+  id             Int      @id @default(autoincrement())
+  userId         Int
+  vehicleDetails String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  User           Users    @relation(fields: [userId], references: [id])
+}
+
+model Packages {
+  id                   Int            @id @default(autoincrement())
+  name                 String
+  description          String
+  rescueChargesPerYear Int
+  pricePerMile         Float
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+  UserPackages         UserPackages[]
+}
+
+model UserPackages {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  packageId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      Users    @relation(fields: [userId], references: [id])
+  Package   Packages @relation(fields: [packageId], references: [id])
+}
+
+model UserRescueCharges {
+  id               Int      @id @default(autoincrement())
+  userId           Int
+  chargesUsed      Int
+  chargesRemaining Int
+  lastUpdated      DateTime
+  User             Users    @relation(fields: [userId], references: [id])
+}
+
+model UserNotifications {
+  id          Int               @id @default(autoincrement())
+  userId      Int
+  image       String
+  title       String
+  description String
+  type        NOTIFICATION_TYPE
+  metadata    Json
+  hasSeen     Boolean
+  createdAt   DateTime          @default(now())
+  User        Users             @relation(fields: [userId], references: [id])
+}
+
+model UserPreference {
+  id                       Int     @id @default(autoincrement())
+  userId                   Int
+  receivePushNotifications Boolean
+  User                     Users   @relation(fields: [userId], references: [id])
+}
+
+model Conversations {
+  id        Int        @id @default(autoincrement())
+  user1Id   Int
+  user2Id   Int
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Messages  Messages[]
+}
+
+model Messages {
+  id             Int           @id @default(autoincrement())
+  conversationId Int
+  senderId       Int
+  content        String
+  createdAt      DateTime      @default(now())
+  Conversation   Conversations @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  User           Users         @relation(fields: [senderId], references: [id])
+}
+
+model DriverReviews {
+  id        Int      @id @default(autoincrement())
+  driverId  Int
+  userId    Int
+  rating    Int
+  comment   String
+  createdAt DateTime @default(now())
+}
+
+model JobRequests {
+  id            Int         @id @default(autoincrement())
+  userId        Int
+  latitude      Float
+  longitude     Float
+  milesRequired Int
+  radius        Float
+  chargingType  String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  User          Users       @relation(fields: [userId], references: [id])
+  JobOffers     JobOffers[]
+}
+
+model JobOffers {
+  id           Int         @id @default(autoincrement())
+  jobRequestId Int
+  driverId     Int
+  status       JOB_STATUS
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  radius       Float
+  JobRequest   JobRequests @relation(fields: [jobRequestId], references: [id])
+  Driver       Users       @relation(fields: [driverId], references: [id])
+}
+
+model ProductCategories {
+  id        Int        @id @default(autoincrement())
+  name      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Products  Products[]
+}
+
+model Products {
+  id              Int               @id @default(autoincrement())
+  categoryId      Int
+  name            String
+  description     String
+  price           Decimal
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  ProductCategory ProductCategories @relation(fields: [categoryId], references: [id])
+  ProductImages   ProductImages[]
+  OrderDetails    OrderDetails[]
+}
+
+model ProductImages {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  imageUrl  String
+  isPrimary Boolean
+  createdAt DateTime @default(now())
+  Product   Products @relation(fields: [productId], references: [id])
+}
+
+model Orders {
+  id           Int            @id @default(autoincrement())
+  userId       Int
+  status       ORDER_STATUS
+  totalAmount  Float
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  User         Users          @relation(fields: [userId], references: [id])
+  OrderDetails OrderDetails[]
+}
+
+model OrderDetails {
+  id        Int      @id @default(autoincrement())
+  orderId   Int
+  productId Int
+  quantity  Int
+  price     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Order     Orders   @relation(fields: [orderId], references: [id])
+  Product   Products @relation(fields: [productId], references: [id])
+}
+
+model Feedback {
+  id             Int              @id @default(autoincrement())
+  userId         Int
+  text           String
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  User           Users            @relation(fields: [userId], references: [id])
+  FeedbackImages FeedbackImages[]
+}
+
+model FeedbackImages {
+  id         Int      @id @default(autoincrement())
+  feedbackId Int
+  imageUrl   String
+  createdAt  DateTime @default(now())
+  Feedback   Feedback @relation(fields: [feedbackId], references: [id])
+}
+
+enum GENDERS {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum OTPT_TYPE {
+  PHONE_NUMBER
+  EMAIL
+}
+
+enum NOTIFICATION_TYPE {
+  USER
+  PRODUCT
+}
+
+enum JOB_STATUS {
+  SENT
+  ACCEPTED
+  DECLINED
+  EXPIRED
+}
+
+enum ORDER_STATUS {
+  PENDING
+  COMPLETE
+}
+
+enum LOGIN_METHOS {
+  EMAIL
+  PHONE_NUMBER
+  GOOGLE
+  FACEBOOK
+  APPLE
+}

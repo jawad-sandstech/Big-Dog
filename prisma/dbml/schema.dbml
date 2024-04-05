@@ -1,0 +1,364 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table Users {
+  id Int [pk, increment]
+  firstName String
+  lastName String
+  dateOfBirth DateTime
+  bio String
+  gender GENDERS
+  roleId Int
+  loginMethod LOGIN_METHOS [not null]
+  email String
+  isEmailVerified Boolean [not null, default: false]
+  phoneNumber String
+  isPhoneNumberVerified Boolean [not null, default: false]
+  roleSelected Boolean [not null, default: false]
+  isProfileComplete Boolean [not null, default: false]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Role Roles
+  UserAddress UserAddress [not null]
+  UserOTP UserOTP [not null]
+  UserStatus UserStatus [not null]
+  UserVehicles UserVehicles [not null]
+  DriverDetails DriverDetails [not null]
+  UserPackages UserPackages [not null]
+  UserRescueCharges UserRescueCharges [not null]
+  UserNotifications UserNotifications [not null]
+  UserPreference UserPreference [not null]
+  Messages Messages [not null]
+  JobRequests JobRequests [not null]
+  JobOffers JobOffers [not null]
+  Orders Orders [not null]
+  Feedback Feedback [not null]
+  Genders Genders
+  gendersId Int
+}
+
+Table Genders {
+  id Int [pk, increment]
+  name String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Users Users [not null]
+}
+
+Table UserAddress {
+  id Int [pk, increment]
+  userId Int [not null]
+  country String [not null]
+  state String [not null]
+  city String [not null]
+  address String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  User Users [not null]
+}
+
+Table Roles {
+  id Int [pk, increment]
+  name String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  Users Users [not null]
+}
+
+Table UserOTP {
+  id Int [pk, increment]
+  userId Int [not null]
+  otp String [not null]
+  otpType OTPT_TYPE [not null]
+  isExpired Boolean [not null]
+  expirationDateTime DateTime [not null]
+  createdAt DateTime [default: `now()`, not null]
+  User Users [not null]
+}
+
+Table UserStatus {
+  id Int [pk, increment]
+  userId Int [not null]
+  isOnline Boolean [not null]
+  lastSeen DateTime [not null]
+  User Users [not null]
+}
+
+Table UserVehicles {
+  id Int [pk, increment]
+  userId Int [not null]
+  car String [not null]
+  model String [not null]
+  about String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  User Users [not null]
+}
+
+Table DriverDetails {
+  id Int [pk, increment]
+  userId Int [not null]
+  vehicleDetails String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  User Users [not null]
+}
+
+Table Packages {
+  id Int [pk, increment]
+  name String [not null]
+  description String [not null]
+  rescueChargesPerYear Int [not null]
+  pricePerMile Float [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  UserPackages UserPackages [not null]
+}
+
+Table UserPackages {
+  id Int [pk, increment]
+  userId Int [not null]
+  packageId Int [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  User Users [not null]
+  Package Packages [not null]
+}
+
+Table UserRescueCharges {
+  id Int [pk, increment]
+  userId Int [not null]
+  chargesUsed Int [not null]
+  chargesRemaining Int [not null]
+  lastUpdated DateTime [not null]
+  User Users [not null]
+}
+
+Table UserNotifications {
+  id Int [pk, increment]
+  userId Int [not null]
+  image String [not null]
+  title String [not null]
+  description String [not null]
+  type NOTIFICATION_TYPE [not null]
+  metadata Json [not null]
+  hasSeen Boolean [not null]
+  createdAt DateTime [default: `now()`, not null]
+  User Users [not null]
+}
+
+Table UserPreference {
+  id Int [pk, increment]
+  userId Int [not null]
+  receivePushNotifications Boolean [not null]
+  User Users [not null]
+}
+
+Table Conversations {
+  id Int [pk, increment]
+  user1Id Int [not null]
+  user2Id Int [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Messages Messages [not null]
+}
+
+Table Messages {
+  id Int [pk, increment]
+  conversationId Int [not null]
+  senderId Int [not null]
+  content String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  Conversation Conversations [not null]
+  User Users [not null]
+}
+
+Table DriverReviews {
+  id Int [pk, increment]
+  driverId Int [not null]
+  userId Int [not null]
+  rating Int [not null]
+  comment String [not null]
+  createdAt DateTime [default: `now()`, not null]
+}
+
+Table JobRequests {
+  id Int [pk, increment]
+  userId Int [not null]
+  latitude Float [not null]
+  longitude Float [not null]
+  milesRequired Int [not null]
+  radius Float [not null]
+  chargingType String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  User Users [not null]
+  JobOffers JobOffers [not null]
+}
+
+Table JobOffers {
+  id Int [pk, increment]
+  jobRequestId Int [not null]
+  driverId Int [not null]
+  status JOB_STATUS [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  radius Float [not null]
+  JobRequest JobRequests [not null]
+  Driver Users [not null]
+}
+
+Table ProductCategories {
+  id Int [pk, increment]
+  name String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Products Products [not null]
+}
+
+Table Products {
+  id Int [pk, increment]
+  categoryId Int [not null]
+  name String [not null]
+  description String [not null]
+  price Decimal [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  ProductCategory ProductCategories [not null]
+  ProductImages ProductImages [not null]
+  OrderDetails OrderDetails [not null]
+}
+
+Table ProductImages {
+  id Int [pk, increment]
+  productId Int [not null]
+  imageUrl String [not null]
+  isPrimary Boolean [not null]
+  createdAt DateTime [default: `now()`, not null]
+  Product Products [not null]
+}
+
+Table Orders {
+  id Int [pk, increment]
+  userId Int [not null]
+  status ORDER_STATUS [not null]
+  totalAmount Float [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  User Users [not null]
+  OrderDetails OrderDetails [not null]
+}
+
+Table OrderDetails {
+  id Int [pk, increment]
+  orderId Int [not null]
+  productId Int [not null]
+  quantity Int [not null]
+  price Float [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  Order Orders [not null]
+  Product Products [not null]
+}
+
+Table Feedback {
+  id Int [pk, increment]
+  userId Int [not null]
+  text String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  User Users [not null]
+  FeedbackImages FeedbackImages [not null]
+}
+
+Table FeedbackImages {
+  id Int [pk, increment]
+  feedbackId Int [not null]
+  imageUrl String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  Feedback Feedback [not null]
+}
+
+Enum GENDERS {
+  MALE
+  FEMALE
+  OTHER
+}
+
+Enum OTPT_TYPE {
+  PHONE_NUMBER
+  EMAIL
+}
+
+Enum NOTIFICATION_TYPE {
+  USER
+  PRODUCT
+}
+
+Enum JOB_STATUS {
+  SENT
+  ACCEPTED
+  DECLINED
+  EXPIRED
+}
+
+Enum ORDER_STATUS {
+  PENDING
+  COMPLETE
+}
+
+Enum LOGIN_METHOS {
+  EMAIL
+  PHONE_NUMBER
+  GOOGLE
+  FACEBOOK
+  APPLE
+}
+
+Ref: Users.roleId > Roles.id
+
+Ref: Users.gendersId > Genders.id
+
+Ref: UserAddress.userId > Users.id
+
+Ref: UserOTP.userId > Users.id [delete: Cascade]
+
+Ref: UserStatus.userId > Users.id
+
+Ref: UserVehicles.userId > Users.id
+
+Ref: DriverDetails.userId > Users.id
+
+Ref: UserPackages.userId > Users.id
+
+Ref: UserPackages.packageId > Packages.id
+
+Ref: UserRescueCharges.userId > Users.id
+
+Ref: UserNotifications.userId > Users.id
+
+Ref: UserPreference.userId > Users.id
+
+Ref: Messages.conversationId > Conversations.id [delete: Cascade]
+
+Ref: Messages.senderId > Users.id
+
+Ref: JobRequests.userId > Users.id
+
+Ref: JobOffers.jobRequestId > JobRequests.id
+
+Ref: JobOffers.driverId > Users.id
+
+Ref: Products.categoryId > ProductCategories.id
+
+Ref: ProductImages.productId > Products.id
+
+Ref: Orders.userId > Users.id
+
+Ref: OrderDetails.orderId > Orders.id
+
+Ref: OrderDetails.productId > Products.id
+
+Ref: Feedback.userId > Users.id
+
+Ref: FeedbackImages.feedbackId > Feedback.id
