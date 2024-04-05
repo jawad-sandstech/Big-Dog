@@ -16,35 +16,33 @@ generator erd {
 }
 
 model Users {
-  id                    Int                 @id @default(autoincrement())
-  firstName             String?
-  lastName              String?
-  dateOfBirth           DateTime?
-  bio                   String?
-  gender                GENDERS?
-  role                  USER_ROLES?
-  loginMethod           LOGIN_METHOS
-  email                 String?
-  isEmailVerified       Boolean             @default(false)
-  phoneNumber           String?
-  isPhoneNumberVerified Boolean             @default(false)
-  isProfileComplete     Boolean             @default(false)
-  createdAt             DateTime            @default(now())
-  updatedAt             DateTime            @updatedAt
-  UserAddress           UserAddress[]
-  UserOTP               UserOTP[]
-  UserStatus            UserStatus[]
-  UserVehicles          UserVehicles[]
-  DriverDetails         DriverDetails[]
-  UserPackages          UserPackages[]
-  UserRescueCharges     UserRescueCharges[]
-  UserNotifications     UserNotifications[]
-  UserPreference        UserPreference[]
-  Messages              Messages[]
-  JobRequests           JobRequests[]
-  JobOffers             JobOffers[]
-  Orders                Orders[]
-  Feedback              Feedback[]
+  id                Int                 @id @default(autoincrement())
+  firstName         String?
+  lastName          String?
+  dateOfBirth       DateTime?
+  bio               String?
+  gender            GENDERS?
+  role              USER_ROLES?
+  loginMethod       LOGIN_METHOS
+  email             String?
+  phoneNumber       String?
+  isProfileComplete Boolean             @default(false)
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  UserAddress       UserAddress[]
+  UserOTP           UserOTP[]
+  UserStatus        UserStatus[]
+  UserVehicles      UserVehicles[]
+  DriverDetails     DriverDetails[]
+  UserPackages      UserPackages[]
+  UserRescueCharges UserRescueCharges[]
+  UserNotifications UserNotifications[]
+  UserPreference    UserPreference[]
+  Messages          Messages[]
+  JobRequests       JobRequests[]
+  JobOffers         JobOffers[]
+  Orders            Orders[]
+  Feedback          Feedback[]
 }
 
 model UserAddress {

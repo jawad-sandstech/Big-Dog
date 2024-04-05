@@ -6,7 +6,6 @@ const {
 } = require('generic-response');
 
 const prisma = require('../../config/database.config');
-// const twilio = require('../../config/twilio.config');
 const logger = require('../../config/logger.config');
 
 const updateRole = async (req, res) => {

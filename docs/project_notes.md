@@ -42,3 +42,7 @@
 ![alt text](image-9.png)
 
 - user will have only 1 role, cannot switch or have 2 accounts from same email (beroz bhai)
+
+- no need to verify email and phone number (Aamir bhai)
+
+![alt text](image-10.png)

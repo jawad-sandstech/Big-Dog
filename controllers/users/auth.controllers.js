@@ -134,14 +134,11 @@ const verifyOtp = async (req, res) => {
   const { email, phoneNumber, otp } = req.body;
 
   let verificationTarget;
-  let verificationField;
 
   if (email) {
     verificationTarget = { email };
-    verificationField = 'isEmailVerified';
   } else if (phoneNumber) {
     verificationTarget = { phoneNumber };
-    verificationField = 'isPhoneNumberVerified';
   }
 
   try {
@@ -168,13 +165,6 @@ const verifyOtp = async (req, res) => {
     }
 
     await expireOTP(userOTP.id);
-
-    await prisma.users.update({
-      where: { id: user.id },
-      data: {
-        [verificationField]: true,
-      },
-    });
 
     const payload = {
       userId: user.id,

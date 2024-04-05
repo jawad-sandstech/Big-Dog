@@ -26,7 +26,6 @@ passport.use(
             email,
             firstName,
             lastName,
-            isEmailVerified: true,
             loginMethod: 'FACEBOOK',
           },
         });
