@@ -11,8 +11,8 @@ const router = express.Router();
 router.get(
   '/',
   authRequired,
-  validateRequest(meValidations.geMyProfile),
-  meControllers.geMyProfile,
+  validateRequest(meValidations.getMyProfile),
+  meControllers.getMyProfile,
 );
 router.patch(
   '/',
