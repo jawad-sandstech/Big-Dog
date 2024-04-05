@@ -47,16 +47,6 @@ model Users {
   JobOffers             JobOffers[]
   Orders                Orders[]
   Feedback              Feedback[]
-  Genders               Genders?            @relation(fields: [gendersId], references: [id])
-  gendersId             Int?
-}
-
-model Genders {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Users     Users[]
 }
 
 model UserAddress {
@@ -83,7 +73,7 @@ model UserOTP {
   userId             Int
   otp                String
   otpType            OTPT_TYPE
-  isExpired          Boolean
+  isExpired          Boolean   @default(false)
   expirationDateTime DateTime
   createdAt          DateTime  @default(now())
   User               Users     @relation(fields: [userId], references: [id], onDelete: Cascade)

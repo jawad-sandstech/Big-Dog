@@ -34,16 +34,6 @@ Table Users {
   JobOffers JobOffers [not null]
   Orders Orders [not null]
   Feedback Feedback [not null]
-  Genders Genders
-  gendersId Int
-}
-
-Table Genders {
-  id Int [pk, increment]
-  name String [not null]
-  createdAt DateTime [default: `now()`, not null]
-  updatedAt DateTime [not null]
-  Users Users [not null]
 }
 
 Table UserAddress {
@@ -70,7 +60,7 @@ Table UserOTP {
   userId Int [not null]
   otp String [not null]
   otpType OTPT_TYPE [not null]
-  isExpired Boolean [not null]
+  isExpired Boolean [not null, default: false]
   expirationDateTime DateTime [not null]
   createdAt DateTime [default: `now()`, not null]
   User Users [not null]
@@ -316,8 +306,6 @@ Enum LOGIN_METHOS {
 }
 
 Ref: Users.roleId > Roles.id
-
-Ref: Users.gendersId > Genders.id
 
 Ref: UserAddress.userId > Users.id
 

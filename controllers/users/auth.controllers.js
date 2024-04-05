@@ -198,9 +198,9 @@ const verifyOtp = async (req, res) => {
 const resendOtp = async (req, res) => {
   const { email, phoneNumber } = req.body;
 
-  let user;
-
   try {
+    let user;
+
     if (email) {
       user = await prisma.users.findFirst({ where: { email } });
     } else if (phoneNumber) {
