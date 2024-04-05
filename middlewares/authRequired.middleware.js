@@ -16,7 +16,7 @@ const authRequired = async (req, res, next) => {
     return res.status(response.status.code).json(response);
   }
 
-  [token] = token.split(' ');
+  [, token] = token.split(' ');
 
   jwt.verify(token, process.env.JWT_SECRET, async (err, decodedUser) => {
     if (err) {
@@ -27,11 +27,6 @@ const authRequired = async (req, res, next) => {
     const user = await prisma.users.findFirst({ where: { id: decodedUser.userId } });
 
     if (!user) {
-      const response = unauthorizedResponse('Invalid token.');
-      return res.status(response.status.code).json(response);
-    }
-
-    if (user.role !== decodedUser.role) {
       const response = unauthorizedResponse('Invalid token.');
       return res.status(response.status.code).json(response);
     }

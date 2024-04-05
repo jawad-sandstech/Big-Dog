@@ -22,17 +22,15 @@ model Users {
   dateOfBirth           DateTime?
   bio                   String?
   gender                GENDERS?
-  roleId                Int?
+  role                  USER_ROLES?
   loginMethod           LOGIN_METHOS
   email                 String?
   isEmailVerified       Boolean             @default(false)
   phoneNumber           String?
   isPhoneNumberVerified Boolean             @default(false)
-  roleSelected          Boolean             @default(false)
   isProfileComplete     Boolean             @default(false)
   createdAt             DateTime            @default(now())
   updatedAt             DateTime            @updatedAt
-  Role                  Roles?              @relation(fields: [roleId], references: [id])
   UserAddress           UserAddress[]
   UserOTP               UserOTP[]
   UserStatus            UserStatus[]
@@ -59,13 +57,6 @@ model UserAddress {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   User      Users    @relation(fields: [userId], references: [id])
-}
-
-model Roles {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  Users     Users[]
 }
 
 model UserOTP {
@@ -280,6 +271,12 @@ model FeedbackImages {
   imageUrl   String
   createdAt  DateTime @default(now())
   Feedback   Feedback @relation(fields: [feedbackId], references: [id])
+}
+
+enum USER_ROLES {
+  USER
+  DRIVER
+  ADMIN
 }
 
 enum GENDERS {

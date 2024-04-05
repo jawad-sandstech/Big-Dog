@@ -9,17 +9,15 @@ Table Users {
   dateOfBirth DateTime
   bio String
   gender GENDERS
-  roleId Int
+  role USER_ROLES
   loginMethod LOGIN_METHOS [not null]
   email String
   isEmailVerified Boolean [not null, default: false]
   phoneNumber String
   isPhoneNumberVerified Boolean [not null, default: false]
-  roleSelected Boolean [not null, default: false]
   isProfileComplete Boolean [not null, default: false]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
-  Role Roles
   UserAddress UserAddress [not null]
   UserOTP UserOTP [not null]
   UserStatus UserStatus [not null]
@@ -46,13 +44,6 @@ Table UserAddress {
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
   User Users [not null]
-}
-
-Table Roles {
-  id Int [pk, increment]
-  name String [not null]
-  createdAt DateTime [default: `now()`, not null]
-  Users Users [not null]
 }
 
 Table UserOTP {
@@ -269,6 +260,12 @@ Table FeedbackImages {
   Feedback Feedback [not null]
 }
 
+Enum USER_ROLES {
+  USER
+  DRIVER
+  ADMIN
+}
+
 Enum GENDERS {
   MALE
   FEMALE
@@ -304,8 +301,6 @@ Enum LOGIN_METHOS {
   FACEBOOK
   APPLE
 }
-
-Ref: Users.roleId > Roles.id
 
 Ref: UserAddress.userId > Users.id
 

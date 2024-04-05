@@ -147,11 +147,10 @@ const verifyOtp = async (req, res) => {
   try {
     const user = await prisma.users.findFirst({
       where: verificationTarget,
-      include: { Role: true },
     });
 
     if (!user) {
-      const response = notFoundResponse('User not found');
+      const response = notFoundResponse('User not found.');
       return res.status(response.status.code).json(response);
     }
 
@@ -181,7 +180,7 @@ const verifyOtp = async (req, res) => {
       userId: user.id,
       firstName: user.firstName,
       lastName: user.lastName,
-      role: user.Role?.name || null,
+      role: user.role,
     };
 
     const token = jwt.sign(payload, process.env.JWT_SECRET);
