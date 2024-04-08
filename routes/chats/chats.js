@@ -14,23 +14,5 @@ router.post(
   validateRequest(jobsValidations.createJob),
   jobsControllers.createJob,
 );
-router.patch(
-  '/:jobId',
-  authRequired,
-  validateRequest(jobsValidations.updateJob),
-  jobsControllers.updateJob,
-);
-router.patch(
-  '/:jobOfferId/accept',
-  authRequired,
-  validateRequest(jobsValidations.acceptJob),
-  jobsControllers.acceptJob,
-);
-router.patch(
-  '/:jobOfferId/reject',
-  authRequired,
-  validateRequest(jobsValidations.rejectJob),
-  jobsControllers.rejectJob,
-);
 
 module.exports = router;

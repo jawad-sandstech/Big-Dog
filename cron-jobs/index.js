@@ -1,5 +1,7 @@
 const cron = require('node-cron');
-const taskDeadlineNotifier = require('./taskDeadlineNotifier');
 
-cron.schedule('0 0 * * *', taskDeadlineNotifier);
-// cron.schedule('*/1 * * * *', taskDeadlineNotifier);
+const expireOldOTPs = require('./handlers/expireOldOTPs');
+const expireJobOffers = require('./handlers/expireJobOffers');
+
+cron.schedule('* * * * *', expireOldOTPs);
+cron.schedule('* * * * *', expireJobOffers);

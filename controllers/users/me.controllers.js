@@ -85,7 +85,41 @@ const updateProfile = async (req, res) => {
   }
 };
 
+const updateLocation = async (req, res) => {
+  const { userId } = req.user;
+  const { latitude, longitude } = req.body;
+
+  try {
+    const existingDriversLocation = await prisma.driversLocation.findFirst({
+      where: { userId },
+    });
+
+    if (existingDriversLocation) {
+      await prisma.driversLocation.update({
+        where: { id: existingDriversLocation.id },
+        data: { latitude, longitude },
+      });
+    } else {
+      await prisma.driversLocation.create({
+        data: {
+          userId,
+          latitude,
+          longitude,
+        },
+      });
+    }
+
+    const response = okResponse(null, 'User location updated successfully.');
+    return res.status(response.status.code).json(response);
+  } catch (error) {
+    logger.error(error.message);
+    const response = serverErrorResponse(error.message);
+    return res.status(response.status.code).json(response);
+  }
+};
+
 module.exports = {
   getMyProfile,
   updateProfile,
+  updateLocation,
 };

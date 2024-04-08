@@ -58,3 +58,5 @@
 
 ![alt text](image-11.png)
 ![alt text](image-12.png)
+
+14. Only driver will get review not user (Aamir bhai)

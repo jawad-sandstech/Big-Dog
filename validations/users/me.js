@@ -26,7 +26,17 @@ const updateProfile = Joi.object({
   }),
 });
 
+const updateLocation = Joi.object({
+  query: Joi.object({}),
+  params: Joi.object({}),
+  body: Joi.object({
+    latitude: Joi.number().required(),
+    longitude: Joi.number().required(),
+  }),
+});
+
 module.exports = {
   getMyProfile,
   updateProfile,
+  updateLocation,
 };

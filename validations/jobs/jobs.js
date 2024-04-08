@@ -12,6 +12,33 @@ const createJob = Joi.object({
   }),
 });
 
+const updateJob = Joi.object({
+  query: Joi.object({}),
+  params: Joi.object({}),
+  body: Joi.object({
+    radius: Joi.string().required(),
+  }),
+});
+
+const acceptJob = Joi.object({
+  query: Joi.object({}),
+  params: Joi.object({
+    jobOfferId: Joi.number().required(),
+  }),
+  body: Joi.object({}),
+});
+
+const rejectJob = Joi.object({
+  query: Joi.object({}),
+  params: Joi.object({
+    jobOfferId: Joi.number().required(),
+  }),
+  body: Joi.object({}),
+});
+
 module.exports = {
   createJob,
+  updateJob,
+  acceptJob,
+  rejectJob,
 };

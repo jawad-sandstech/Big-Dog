@@ -43,7 +43,9 @@ model Users {
   JobOffers         JobOffers[]
   Orders            Orders[]
   Feedback          Feedback[]
-  DriversLocation   DriversLocation[]
+  DriversLocation   DriversLocation?
+  driverReviews     DriverReviews[]     @relation("ReviewedDriver")
+  reviewedBy        DriverReviews[]     @relation("Reviewer")
 }
 
 model UserAddress {
@@ -99,7 +101,7 @@ model DriverDetails {
 
 model DriversLocation {
   id        Int      @id @default(autoincrement())
-  userId    Int
+  userId    Int      @unique
   latitude  Float
   longitude Float
   createdAt DateTime @default(now())
@@ -187,6 +189,8 @@ model DriverReviews {
   rating    Int
   comment   String
   createdAt DateTime @default(now())
+  Driver    Users    @relation("ReviewedDriver", fields: [driverId], references: [id])
+  Reviewer  Users    @relation("Reviewer", fields: [userId], references: [id])
 }
 
 model JobRequests {
@@ -197,6 +201,7 @@ model JobRequests {
   milesRequired Int
   radius        Float
   chargingType  String
+  userAccepted  Boolean     @default(false)
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
   User          Users       @relation(fields: [userId], references: [id])
@@ -207,10 +212,9 @@ model JobOffers {
   id           Int         @id @default(autoincrement())
   jobRequestId Int
   driverId     Int
-  status       JOB_STATUS
+  status       JOB_STATUS  @default(SENT)
   createdAt    DateTime    @default(now())
   updatedAt    DateTime    @updatedAt
-  radius       Float
   JobRequest   JobRequests @relation(fields: [jobRequestId], references: [id])
   Driver       Users       @relation(fields: [driverId], references: [id])
 }
@@ -313,6 +317,7 @@ enum JOB_STATUS {
   ACCEPTED
   DECLINED
   EXPIRED
+  DONE
 }
 
 enum ORDER_STATUS {

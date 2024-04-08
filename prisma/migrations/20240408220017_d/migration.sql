@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `joboffers` MODIFY `status` ENUM('SENT', 'ACCEPTED', 'DECLINED', 'EXPIRED', 'DONE') NOT NULL DEFAULT 'SENT';

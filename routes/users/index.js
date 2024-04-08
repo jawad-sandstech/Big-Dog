@@ -6,5 +6,6 @@ const router = express.Router();
 router.use('/auth', require('./auth'));
 router.use('/role', require('./role'));
 router.use('/me', require('./me'));
+router.use('/:userId/reviews', require('./reviews'));
 
 module.exports = router;

@@ -30,7 +30,9 @@ Table Users {
   JobOffers JobOffers [not null]
   Orders Orders [not null]
   Feedback Feedback [not null]
-  DriversLocation DriversLocation [not null]
+  DriversLocation DriversLocation
+  driverReviews DriverReviews [not null]
+  reviewedBy DriverReviews [not null]
 }
 
 Table UserAddress {
@@ -86,7 +88,7 @@ Table DriverDetails {
 
 Table DriversLocation {
   id Int [pk, increment]
-  userId Int [not null]
+  userId Int [unique, not null]
   latitude Float [not null]
   longitude Float [not null]
   createdAt DateTime [default: `now()`, not null]
@@ -174,6 +176,8 @@ Table DriverReviews {
   rating Int [not null]
   comment String [not null]
   createdAt DateTime [default: `now()`, not null]
+  Driver Users [not null]
+  Reviewer Users [not null]
 }
 
 Table JobRequests {
@@ -184,6 +188,7 @@ Table JobRequests {
   milesRequired Int [not null]
   radius Float [not null]
   chargingType String [not null]
+  userAccepted Boolean [not null, default: false]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
   User Users [not null]
@@ -194,10 +199,9 @@ Table JobOffers {
   id Int [pk, increment]
   jobRequestId Int [not null]
   driverId Int [not null]
-  status JOB_STATUS [not null]
+  status JOB_STATUS [not null, default: 'SENT']
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
-  radius Float [not null]
   JobRequest JobRequests [not null]
   Driver Users [not null]
 }
@@ -300,6 +304,7 @@ Enum JOB_STATUS {
   ACCEPTED
   DECLINED
   EXPIRED
+  DONE
 }
 
 Enum ORDER_STATUS {
@@ -325,7 +330,7 @@ Ref: UserVehicles.userId > Users.id
 
 Ref: DriverDetails.userId > Users.id
 
-Ref: DriversLocation.userId > Users.id
+Ref: DriversLocation.userId - Users.id
 
 Ref: UserPackages.userId > Users.id
 
@@ -340,6 +345,10 @@ Ref: UserPreference.userId > Users.id
 Ref: Messages.conversationId > Conversations.id [delete: Cascade]
 
 Ref: Messages.senderId > Users.id
+
+Ref: DriverReviews.driverId > Users.id
+
+Ref: DriverReviews.userId > Users.id
 
 Ref: JobRequests.userId > Users.id
 

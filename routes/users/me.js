@@ -20,5 +20,11 @@ router.patch(
   validateRequest(meValidations.updateProfile),
   meControllers.updateProfile,
 );
+router.patch(
+  '/update-location',
+  authRequired,
+  validateRequest(meValidations.updateLocation),
+  meControllers.updateLocation,
+);
 
 module.exports = router;
