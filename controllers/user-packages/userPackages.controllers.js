@@ -1,3 +1,4 @@
+const moment = require('moment');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const { okResponse, serverErrorResponse, notFoundResponse } = require('generic-response');
 
@@ -32,16 +33,33 @@ const getCurrentPackage = async (req, res) => {
   const { userId } = req.user;
 
   try {
+    const currentDate = moment();
+
     const user = await prisma.users.findFirst({
       where: { id: userId },
+      include: {
+        UserRescueCharges: true,
+        UserPackages: {
+          where: {
+            isActive: true,
+            expireAt: { gt: currentDate },
+          },
+          include: {
+            Package: true,
+          },
+        },
+      },
     });
 
     if (!user) {
-      const response = notFoundResponse('User not found');
+      const response = okResponse(null, 'Could not find any package.');
       return res.status(response.status.code).json(response);
     }
 
-    const response = okResponse(user);
+    const response = okResponse({
+      UserPackages: user.UserPackages[0].Package,
+      UserRescueCharges: user.UserRescueCharges[0],
+    });
     return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);
@@ -80,30 +98,7 @@ const buyPackage = async (req, res) => {
   }
 };
 
-const updatePackage = async (req, res) => {
-  const { userId } = req.user;
-
-  try {
-    const user = await prisma.users.findFirst({
-      where: { id: userId },
-    });
-
-    if (!user) {
-      const response = notFoundResponse('User not found');
-      return res.status(response.status.code).json(response);
-    }
-
-    const response = okResponse(user);
-    return res.status(response.status.code).json(response);
-  } catch (error) {
-    logger.error(error.message);
-    const response = serverErrorResponse(error.message);
-    return res.status(response.status.code).json(response);
-  }
-};
-
 module.exports = {
   getCurrentPackage,
   buyPackage,
-  updatePackage,
 };

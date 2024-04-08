@@ -6,7 +6,11 @@ const passport = require('passport');
 require('./config/auth/google.config');
 require('./config/auth/facebook.config');
 
+const stripeWebhookHandler = require('./webhooks');
+
 const app = express();
+
+app.post('/api/v1/stripe-webhook', express.raw({ type: 'application/json' }), stripeWebhookHandler);
 
 app.use(express.static('uploads'));
 app.use(express.json({ limit: '100mb' }));

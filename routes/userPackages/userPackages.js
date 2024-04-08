@@ -20,11 +20,5 @@ router.post(
   validateRequest(userPackageValidations.buyPackage),
   userPackageControllers.buyPackage,
 );
-router.patch(
-  '/',
-  authRequired,
-  validateRequest(userPackageValidations.updatePackage),
-  userPackageControllers.updatePackage,
-);
 
 module.exports = router;

@@ -43,6 +43,7 @@ model Users {
   JobOffers         JobOffers[]
   Orders            Orders[]
   Feedback          Feedback[]
+  DriversLocation   DriversLocation[]
 }
 
 model UserAddress {
@@ -96,6 +97,16 @@ model DriverDetails {
   User           Users    @relation(fields: [userId], references: [id])
 }
 
+model DriversLocation {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  latitude  Float
+  longitude Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      Users    @relation(fields: [userId], references: [id])
+}
+
 model Packages {
   id                   Int            @id @default(autoincrement())
   name                 String
@@ -112,6 +123,8 @@ model UserPackages {
   id        Int      @id @default(autoincrement())
   userId    Int
   packageId Int
+  isActive  Boolean  @default(true)
+  expireAt  DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   User      Users    @relation(fields: [userId], references: [id])
@@ -123,7 +136,8 @@ model UserRescueCharges {
   userId           Int
   chargesUsed      Int
   chargesRemaining Int
-  lastUpdated      DateTime
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
   User             Users    @relation(fields: [userId], references: [id])
 }
 

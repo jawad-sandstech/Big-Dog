@@ -14,6 +14,7 @@
     "express": "^4.19.2",
     "express-req-res-inspector": "^2.0.3",
     "generic-response": "^1.0.6",
+    "geolib": "^3.3.4",
     "joi": "^17.12.3",
     "jsonwebtoken": "^9.0.2",
     "moment": "^2.30.1",

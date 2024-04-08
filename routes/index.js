@@ -6,5 +6,6 @@ const router = express.Router();
 router.use('/users', require('./users'));
 router.use('/packages', require('./packages'));
 router.use('/user-packages', require('./userPackages'));
+router.use('/jobs', require('./jobs'));
 
 module.exports = router;

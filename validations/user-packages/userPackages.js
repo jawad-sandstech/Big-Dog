@@ -14,14 +14,7 @@ const buyPackage = Joi.object({
   }),
 });
 
-const updatePackage = Joi.object({
-  query: Joi.object({}),
-  params: Joi.object({}),
-  body: Joi.object({}),
-});
-
 module.exports = {
   getCurrentPackage,
   buyPackage,
-  updatePackage,
 };

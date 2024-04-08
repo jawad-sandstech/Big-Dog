@@ -30,6 +30,7 @@ Table Users {
   JobOffers JobOffers [not null]
   Orders Orders [not null]
   Feedback Feedback [not null]
+  DriversLocation DriversLocation [not null]
 }
 
 Table UserAddress {
@@ -83,6 +84,16 @@ Table DriverDetails {
   User Users [not null]
 }
 
+Table DriversLocation {
+  id Int [pk, increment]
+  userId Int [not null]
+  latitude Float [not null]
+  longitude Float [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  User Users [not null]
+}
+
 Table Packages {
   id Int [pk, increment]
   name String [not null]
@@ -99,6 +110,8 @@ Table UserPackages {
   id Int [pk, increment]
   userId Int [not null]
   packageId Int [not null]
+  isActive Boolean [not null, default: true]
+  expireAt DateTime [not null]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
   User Users [not null]
@@ -110,7 +123,8 @@ Table UserRescueCharges {
   userId Int [not null]
   chargesUsed Int [not null]
   chargesRemaining Int [not null]
-  lastUpdated DateTime [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
   User Users [not null]
 }
 
@@ -310,6 +324,8 @@ Ref: UserStatus.userId > Users.id
 Ref: UserVehicles.userId > Users.id
 
 Ref: DriverDetails.userId > Users.id
+
+Ref: DriversLocation.userId > Users.id
 
 Ref: UserPackages.userId > Users.id
 
