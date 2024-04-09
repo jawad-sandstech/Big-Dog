@@ -297,7 +297,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"phoneNumber\": \"03452987875\",\r\n    \"otp\": \"994903\"\r\n}",
+									"raw": "{\r\n    \"emial\": \"ayaz@gmail.com\",\r\n    \"otp\": \"880822\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -906,6 +906,318 @@
 									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": null,\n    \"error\": null,\n    \"message\": \"Updated Successfully.\"\n}"
 								}
 							]
+						},
+						{
+							"name": "Update Driver Location",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"latitude\": 23.5454854,\r\n    \"longitude\": 23.5454854\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/me/update-location",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"me",
+										"update-location"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"latitude\": 23.5454854,\r\n    \"longitude\": 23.5454854\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/me/update-location",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"me",
+												"update-location"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "111"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6f-AGAQI9aO8GRQtC38rOZGpa0zA3U\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 08 Apr 2024 20:17:56 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": null,\n    \"error\": null,\n    \"message\": \"User location updated successfully.\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Vehicle",
+					"item": [
+						{
+							"name": "Add Vehicle Info",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"car\": \"car\",\r\n    \"model\": \"model\",\r\n    \"about\": \"about\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/vehicle",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"vehicle"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"car\": \"car\",\r\n    \"model\": \"model\",\r\n    \"about\": \"about\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/vehicle",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"vehicle"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "216"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"d8-vdRqzCZ4LzLlm7wx7ex38vnrM+E\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 09 Apr 2024 17:01:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": {\n        \"id\": 1,\n        \"userId\": 12,\n        \"car\": \"car\",\n        \"model\": \"model\",\n        \"about\": \"about\",\n        \"createdAt\": \"2024-04-09T17:01:40.451Z\",\n        \"updatedAt\": \"2024-04-09T17:01:40.451Z\"\n    },\n    \"error\": null,\n    \"message\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Vehicle Info",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"car\": \"car...\",\r\n    \"model\": \"model...\",\r\n    \"about\": \"about...\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/users/vehicle/:vehicleId",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"users",
+										"vehicle",
+										":vehicleId"
+									],
+									"variable": [
+										{
+											"key": "vehicleId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Vehicle Info",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"car\": \"car...\",\r\n    \"model\": \"model...\",\r\n    \"about\": \"about...\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/users/vehicle/:vehicleId",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"users",
+												"vehicle",
+												":vehicleId"
+											],
+											"variable": [
+												{
+													"key": "vehicleId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "244"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"f4-2I32j6llEpo8vPPDo+H4TUWEhX0\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 09 Apr 2024 17:04:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": {\n        \"id\": 1,\n        \"userId\": 12,\n        \"car\": \"car...\",\n        \"model\": \"model...\",\n        \"about\": \"about...\",\n        \"createdAt\": \"2024-04-09T17:01:40.451Z\",\n        \"updatedAt\": \"2024-04-09T17:04:23.961Z\"\n    },\n    \"error\": null,\n    \"message\": \"Updated Successfully.\"\n}"
+								}
+							]
 						}
 					]
 				}
@@ -1008,9 +1320,78 @@
 							"name": "Get Current Package",
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/api/{{VERSION}}/user-packages",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"{{VERSION}}",
+										"user-packages"
+									]
+								}
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Get Current Package",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/user-packages",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"user-packages"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "482"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e2-/wjXdwXt7wiXY2w9FaFPaKlQ2tc\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 08 Apr 2024 17:31:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": {\n        \"UserPackages\": {\n            \"id\": 1,\n            \"name\": \"Silver Package\",\n            \"description\": \"2 rescue charges per year\\r\\n$3.50 per mile charge\",\n            \"price\": 19.95,\n            \"rescueChargesPerYear\": 2,\n            \"pricePerMile\": 3.5,\n            \"createdAt\": \"2024-04-05T12:08:37.000Z\",\n            \"updatedAt\": \"2024-04-05T12:08:39.000Z\"\n        },\n        \"UserRescueCharges\": {\n            \"id\": 1,\n            \"userId\": 12,\n            \"chargesUsed\": 0,\n            \"chargesRemaining\": 2,\n            \"createdAt\": \"2024-04-08T17:09:24.664Z\",\n            \"updatedAt\": \"2024-04-08T17:09:24.664Z\"\n        }\n    },\n    \"error\": null,\n    \"message\": null\n}"
+								}
+							]
 						},
 						{
 							"name": "Buy Package",
@@ -1038,15 +1419,74 @@
 									]
 								}
 							},
-							"response": []
-						},
-						{
-							"name": "Update Package",
-							"request": {
-								"method": "PATCH",
-								"header": []
-							},
-							"response": []
+							"response": [
+								{
+									"name": "Buy Package",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"packageId\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/api/{{VERSION}}/user-packages",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"api",
+												"{{VERSION}}",
+												"user-packages"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "240"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"f0-F+Vkx6w3WalYv8WZlo8b4WiLqAI\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 08 Apr 2024 15:56:15 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": {\n        \"code\": 200,\n        \"success\": true\n    },\n    \"data\": {\n        \"paymentIntent\": {\n            \"id\": \"pi_3P3KYJRqr7Usj6Rr0ZTJ5J5f\",\n            \"clientSecret\": \"pi_3P3KYJRqr7Usj6Rr0ZTJ5J5f_secret_3PSGGz5lEjOQQOAwXStSfrnKe\"\n        }\n    },\n    \"error\": null,\n    \"message\": \"created Payment intent successfully.\"\n}"
+								}
+							]
 						}
 					]
 				}
