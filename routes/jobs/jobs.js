@@ -8,6 +8,12 @@ const jobsControllers = require('../../controllers/jobs/jobs.controllers');
 
 const router = express.Router();
 
+router.get(
+  '/:jobId/conversation-id',
+  authRequired,
+  validateRequest(jobsValidations.getConversationIdOfJobRequest),
+  jobsControllers.getConversationIdOfJobRequest,
+);
 router.post(
   '/',
   authRequired,
@@ -19,24 +25,6 @@ router.patch(
   authRequired,
   validateRequest(jobsValidations.updateJob),
   jobsControllers.updateJob,
-);
-router.patch(
-  '/:jobOfferId/accept',
-  authRequired,
-  validateRequest(jobsValidations.acceptJob),
-  jobsControllers.acceptJob,
-);
-router.patch(
-  '/:jobOfferId/reject',
-  authRequired,
-  validateRequest(jobsValidations.rejectJob),
-  jobsControllers.rejectJob,
-);
-router.patch(
-  '/:jobOfferId/confirm',
-  authRequired,
-  validateRequest(jobsValidations.confirmJob),
-  jobsControllers.confirmJob,
 );
 
 module.exports = router;

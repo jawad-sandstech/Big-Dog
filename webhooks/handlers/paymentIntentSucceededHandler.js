@@ -1,8 +1,9 @@
 const moment = require('moment');
 
 const prisma = require('../../config/database.config');
+const logger = require('../../config/logger.config');
 
-const paymentIntentSucceededHandler = async (paymentIntent) => {
+const handlePackagePurchase = async (paymentIntent) => {
   const { userId: userIdStr, packageId: packageIdStr } = paymentIntent.metadata;
 
   const userId = Number(userIdStr);
@@ -59,6 +60,56 @@ const paymentIntentSucceededHandler = async (paymentIntent) => {
         chargesRemaining: packageDeal.rescueChargesPerYear,
       },
     });
+  }
+};
+
+const handleJobConfirmation = async (paymentIntent) => {
+  const { userId: userIdStr, decrementChargesRemaining, jobRequestId } = paymentIntent.metadata;
+
+  const userId = Number(userIdStr);
+
+  const jobRequest = await prisma.jobRequests.update({
+    where: { id: jobRequestId },
+    data: { hasPaid: true },
+    include: { JobOffers: { where: { status: 'ACCEPTED' } } },
+  });
+
+  const conversation = await prisma.conversations.create({
+    data: {
+      user1Id: jobRequest.userId,
+      user2Id: jobRequest.JobOffers[0].driverId,
+    },
+  });
+
+  await prisma.jobRequests.update({
+    where: { id: jobRequest.id },
+    data: { conversationId: conversation.id },
+  });
+
+  if (decrementChargesRemaining) {
+    await prisma.userRescueCharges.update({
+      where: { userId },
+      data: {
+        chargesRemaining: {
+          decrement: 1,
+        },
+      },
+    });
+  }
+};
+
+const paymentIntentSucceededHandler = async (paymentIntent) => {
+  const { type } = paymentIntent.metadata;
+
+  switch (type) {
+    case 'BOUGHT_PACKAGE':
+      await handlePackagePurchase(paymentIntent);
+      break;
+    case 'CONFIRMED_JOB':
+      await handleJobConfirmation(paymentIntent);
+      break;
+    default:
+      logger.error(`Unhandled paymentIntent metadata type: ${type}`);
   }
 };
 

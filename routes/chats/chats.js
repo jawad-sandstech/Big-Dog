@@ -3,16 +3,22 @@ const express = require('express');
 const authRequired = require('../../middlewares/authRequired.middleware');
 const validateRequest = require('../../middlewares/validateRequest.middleware');
 
-const jobsValidations = require('../../validations/jobs/jobs');
-const jobsControllers = require('../../controllers/jobs/jobs.controllers');
+const chatsValidations = require('../../validations/chats/chats');
+const chatsControllers = require('../../controllers/chats/chats.controllers');
 
 const router = express.Router();
 
-router.post(
-  '/',
+router.get(
+  '/:chatId',
   authRequired,
-  validateRequest(jobsValidations.createJob),
-  jobsControllers.createJob,
+  validateRequest(chatsValidations.getAllMessages),
+  chatsControllers.getAllMessages,
+);
+router.post(
+  '/:chatId',
+  authRequired,
+  validateRequest(chatsValidations.createMessage),
+  chatsControllers.createMessage,
 );
 
 module.exports = router;

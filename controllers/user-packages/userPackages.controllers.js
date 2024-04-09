@@ -13,8 +13,6 @@ const createPaymentIntent = async (user, packageDeal) => {
     currency: 'usd',
     metadata: {
       userId: user.id,
-      userFirstName: user.firstName,
-      userLastName: user.lastName,
       userEmail: user.email,
       userPhoneNumber: user.phoneNumber,
       packageId: packageDeal.id,

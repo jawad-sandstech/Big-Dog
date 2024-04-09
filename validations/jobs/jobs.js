@@ -1,5 +1,13 @@
 const Joi = require('joi');
 
+const getConversationIdOfJobRequest = Joi.object({
+  query: Joi.object({}),
+  params: Joi.object({
+    jobId: Joi.number().required(),
+  }),
+  body: Joi.object({}),
+});
+
 const createJob = Joi.object({
   query: Joi.object({}),
   params: Joi.object({}),
@@ -20,34 +28,8 @@ const updateJob = Joi.object({
   }),
 });
 
-const acceptJob = Joi.object({
-  query: Joi.object({}),
-  params: Joi.object({
-    jobOfferId: Joi.number().required(),
-  }),
-  body: Joi.object({}),
-});
-
-const rejectJob = Joi.object({
-  query: Joi.object({}),
-  params: Joi.object({
-    jobOfferId: Joi.number().required(),
-  }),
-  body: Joi.object({}),
-});
-
-const confirmJob = Joi.object({
-  query: Joi.object({}),
-  params: Joi.object({
-    jobOfferId: Joi.number().required(),
-  }),
-  body: Joi.object({}),
-});
-
 module.exports = {
+  getConversationIdOfJobRequest,
   createJob,
   updateJob,
-  acceptJob,
-  rejectJob,
-  confirmJob,
 };
