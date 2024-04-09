@@ -23,7 +23,7 @@ model Users {
   bio               String?
   gender            GENDERS?
   role              USER_ROLES?
-  loginMethod       LOGIN_METHOS
+  loginMethod       LOGIN_METHODS
   email             String?
   phoneNumber       String?
   isProfileComplete Boolean             @default(false)
@@ -32,10 +32,8 @@ model Users {
   UserAddress       UserAddress[]
   UserOTP           UserOTP[]
   UserStatus        UserStatus[]
-  UserVehicles      UserVehicles[]
   DriverDetails     DriverDetails[]
   UserPackages      UserPackages[]
-  UserRescueCharges UserRescueCharges[]
   UserNotifications UserNotifications[]
   UserPreference    UserPreference[]
   Messages          Messages[]
@@ -46,6 +44,8 @@ model Users {
   DriversLocation   DriversLocation?
   driverReviews     DriverReviews[]     @relation("ReviewedDriver")
   reviewedBy        DriverReviews[]     @relation("Reviewer")
+  UserVehicles      UserVehicles?
+  UserRescueCharges UserRescueCharges?
 }
 
 model UserAddress {
@@ -81,7 +81,7 @@ model UserStatus {
 
 model UserVehicles {
   id        Int      @id @default(autoincrement())
-  userId    Int
+  userId    Int      @unique
   car       String
   model     String
   about     String
@@ -135,7 +135,7 @@ model UserPackages {
 
 model UserRescueCharges {
   id               Int      @id @default(autoincrement())
-  userId           Int
+  userId           Int      @unique
   chargesUsed      Int
   chargesRemaining Int
   createdAt        DateTime @default(now())
@@ -164,12 +164,13 @@ model UserPreference {
 }
 
 model Conversations {
-  id        Int        @id @default(autoincrement())
-  user1Id   Int
-  user2Id   Int
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  Messages  Messages[]
+  id          Int          @id @default(autoincrement())
+  user1Id     Int
+  user2Id     Int
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  Messages    Messages[]
+  JobRequests JobRequests?
 }
 
 model Messages {
@@ -194,18 +195,22 @@ model DriverReviews {
 }
 
 model JobRequests {
-  id            Int         @id @default(autoincrement())
-  userId        Int
-  latitude      Float
-  longitude     Float
-  milesRequired Int
-  radius        Float
-  chargingType  String
-  userAccepted  Boolean     @default(false)
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  User          Users       @relation(fields: [userId], references: [id])
-  JobOffers     JobOffers[]
+  id             Int            @id @default(autoincrement())
+  userId         Int
+  latitude       Float
+  longitude      Float
+  milesRequired  Int
+  radius         Float
+  chargingType   String
+  hasAccepted    Boolean        @default(false)
+  hasPaid        Boolean        @default(false)
+  hasLeftReview  Boolean        @default(false)
+  conversationId Int?           @unique
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  User           Users          @relation(fields: [userId], references: [id])
+  Conversation   Conversations? @relation(fields: [conversationId], references: [id])
+  JobOffers      JobOffers[]
 }
 
 model JobOffers {
@@ -325,7 +330,7 @@ enum ORDER_STATUS {
   COMPLETE
 }
 
-enum LOGIN_METHOS {
+enum LOGIN_METHODS {
   EMAIL
   PHONE_NUMBER
   GOOGLE

@@ -32,5 +32,11 @@ router.patch(
   validateRequest(jobsValidations.rejectJob),
   jobsControllers.rejectJob,
 );
+router.patch(
+  '/:jobOfferId/confirm',
+  authRequired,
+  validateRequest(jobsValidations.confirmJob),
+  jobsControllers.confirmJob,
+);
 
 module.exports = router;

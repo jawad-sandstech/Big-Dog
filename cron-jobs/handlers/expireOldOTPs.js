@@ -2,6 +2,8 @@ const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
 
 const expireOldOTPs = async () => {
+  logger.info('expireOldOTPs cron job running...');
+
   try {
     await prisma.userOTP.updateMany({
       where: {

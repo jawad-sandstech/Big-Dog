@@ -1,3 +1,4 @@
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const geolib = require('geolib');
 const {
   okResponse,
@@ -10,6 +11,21 @@ const {
 
 const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
+
+const createPaymentIntent = async (jobRequestId, amount) => {
+  const amountInCents = amount * 1000;
+
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: amountInCents,
+    currency: 'usd',
+    metadata: { jobRequestId },
+  });
+
+  return {
+    id: paymentIntent.id,
+    clientSecret: paymentIntent.client_secret,
+  };
+};
 
 const createJob = async (req, res) => {
   const { userId } = req.user;
@@ -243,9 +259,83 @@ const rejectJob = async (req, res) => {
   }
 };
 
+const confirmJob = async (req, res) => {
+  const { userId } = req.user;
+  const { jobOfferId: jobOfferIdStr } = req.user;
+
+  try {
+    const jobOfferId = Number(jobOfferIdStr);
+
+    const user = await prisma.users.findUnique({
+      where: { id: userId },
+      include: {
+        UserPackages: {
+          where: {
+            isActive: true,
+            expireAt: {
+              gt: new Date(),
+            },
+          },
+          include: { Package: true },
+        },
+        UserRescueCharges: true,
+      },
+    });
+
+    const existingJobOffer = await prisma.jobOffers.findUnique({
+      where: { id: jobOfferId },
+      include: { JobRequest: true },
+    });
+
+    if (!existingJobOffer) {
+      const response = notFoundResponse(`job offer with id: ${jobOfferId} not found.`);
+      return res.status(response.status.code).json(response);
+    }
+
+    const jobRequest = existingJobOffer.JobRequest;
+
+    if (jobRequest.userId !== userId) {
+      const response = unauthorizedResponse('not yours');
+      return res.status(response.status.code).json(response);
+    }
+
+    if (jobRequest.hasAccepted) {
+      const response = badRequestResponse('Already accepted.');
+      return res.status(response.status.code).json(response);
+    }
+
+    await prisma.jobRequests.update({
+      where: { id: jobRequest.id },
+      data: { hasAccepted: true },
+    });
+
+    // price calculation logic
+
+    // let pricePerMeter;
+
+    // if (user.UserRescueCharges.chargesRemaining > 0) {
+    //   pricePerMeter = user.UserPackages[0].Package.pricePerMile;
+    // } else {
+    //   pricePerMeter = process.env.PRICE_PER_METER;
+    // }
+
+    // ! price calculation logic
+
+    const paymentIntent = await createPaymentIntent(jobRequest.id, 100);
+
+    const response = okResponse({ paymentIntent });
+    return res.status(response.status.code).json(response);
+  } catch (error) {
+    logger.error(error.message);
+    const response = serverErrorResponse(error.message);
+    return res.status(response.status.code).json(response);
+  }
+};
+
 module.exports = {
   createJob,
   updateJob,
   acceptJob,
   rejectJob,
+  confirmJob,
 };

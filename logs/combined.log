@@ -279,3 +279,174 @@
 {"level":"info","message":"listening on 6600"}
 {"level":"info","message":"listening on 6600"}
 {"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.userVehicles.findFirst()` invocation in\nD:\\projects\\Big-Dog\\controllers\\users\\vehicle.controllers.js:49:55\n\n  46 const data = req.body;\n  47 \n  48 try {\n→ 49   const existingVehicle = await prisma.userVehicles.findFirst({\n         where: {\n           id: \"1\"\n               ~~~\n         }\n       })\n\nArgument `id`: Invalid value provided. Expected IntFilter or Int, provided String."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"clientVersion":"5.12.1","level":"error","message":"Error expiring user packages: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:31\n\n  15   },\n  16 });\n  17 \n→ 18 await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:31\n\n  15   },\n  16 });\n  17 \n→ 18 await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.\n    at Tn (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:115:5888)\n    at In.handleRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6510)\n    at In.handleAndLogRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6188)\n    at In.request (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:5896)\n    at async l (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:127:11167)\n    at async Task.expireUserPackages [as _execution] (D:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:5)"}
+{"clientVersion":"5.12.1","level":"error","message":"Error expiring user packages: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:31\n\n  15   },\n  16 });\n  17 \n→ 18 await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:31\n\n  15   },\n  16 });\n  17 \n→ 18 await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.\n    at Tn (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:115:5888)\n    at In.handleRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6510)\n    at In.handleAndLogRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6188)\n    at In.request (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:5896)\n    at async l (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:127:11167)\n    at async Task.expireUserPackages [as _execution] (D:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:5)"}
+{"level":"info","message":"listening on 6600"}
+{"clientVersion":"5.12.1","level":"error","message":"Error expiring user packages: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:59\n\n  15   },\n  16 });\n  17 \n→ 18 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:59\n\n  15   },\n  16 });\n  17 \n→ 18 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.\n    at Tn (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:115:5888)\n    at In.handleRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6510)\n    at In.handleAndLogRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6188)\n    at In.request (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:5896)\n    at async l (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:127:11167)\n    at async Task.expireUserPackages [as _execution] (D:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:33)"}
+{"clientVersion":"5.12.1","level":"error","message":"Error expiring user packages: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:59\n\n  15   },\n  16 });\n  17 \n→ 18 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:59\n\n  15   },\n  16 });\n  17 \n→ 18 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.\n    at Tn (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:115:5888)\n    at In.handleRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6510)\n    at In.handleAndLogRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6188)\n    at In.request (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:5896)\n    at async l (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:127:11167)\n    at async Task.expireUserPackages [as _execution] (D:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:33)"}
+{"level":"info","message":"listening on 6600"}
+{"clientVersion":"5.12.1","level":"error","message":"Error expiring user packages: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:59\n\n  15   },\n  16 });\n  17 \n→ 18 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:59\n\n  15   },\n  16 });\n  17 \n→ 18 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.\n    at Tn (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:115:5888)\n    at In.handleRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6510)\n    at In.handleAndLogRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6188)\n    at In.request (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:5896)\n    at async l (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:127:11167)\n    at async Task.expireUserPackages [as _execution] (D:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:18:33)"}
+{"level":"info","message":"listening on 6600"}
+{"clientVersion":"5.12.1","level":"error","message":"Error expiring user packages: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:20:59\n\n  17 \n  18 console.log('expiredUserPackageIds', expiredUserPackageIds);\n  19 \n→ 20 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:20:59\n\n  17 \n  18 console.log('expiredUserPackageIds', expiredUserPackageIds);\n  19 \n→ 20 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.\n    at Tn (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:115:5888)\n    at In.handleRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6510)\n    at In.handleAndLogRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6188)\n    at In.request (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:5896)\n    at async l (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:127:11167)\n    at async Task.expireUserPackages [as _execution] (D:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:20:33)"}
+{"clientVersion":"5.12.1","level":"error","message":"Error expiring user packages: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:20:59\n\n  17 \n  18 console.log('expiredUserPackageIds', expiredUserPackageIds);\n  19 \n→ 20 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.userPackages.findMany()` invocation in\nD:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:20:59\n\n  17 \n  18 console.log('expiredUserPackageIds', expiredUserPackageIds);\n  19 \n→ 20 const expiredUserPackages = await prisma.userPackages.findMany({\n       where: {\n         id: {\n           in: {\n             count: 0\n           }\n           ~~~~~~~~~~\n         }\n       }\n     })\n\nArgument `in`: Invalid value provided. Expected Int[], provided Object.\n    at Tn (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:115:5888)\n    at In.handleRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6510)\n    at In.handleAndLogRequestError (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:6188)\n    at In.request (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:122:5896)\n    at async l (D:\\projects\\Big-Dog\\node_modules\\@prisma\\client\\runtime\\library.js:127:11167)\n    at async Task.expireUserPackages [as _execution] (D:\\projects\\Big-Dog\\cron-jobs\\handlers\\expireUserPackages.js:20:33)"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}

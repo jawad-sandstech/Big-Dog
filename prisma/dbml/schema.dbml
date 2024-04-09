@@ -10,7 +10,7 @@ Table Users {
   bio String
   gender GENDERS
   role USER_ROLES
-  loginMethod LOGIN_METHOS [not null]
+  loginMethod LOGIN_METHODS [not null]
   email String
   phoneNumber String
   isProfileComplete Boolean [not null, default: false]
@@ -19,10 +19,8 @@ Table Users {
   UserAddress UserAddress [not null]
   UserOTP UserOTP [not null]
   UserStatus UserStatus [not null]
-  UserVehicles UserVehicles [not null]
   DriverDetails DriverDetails [not null]
   UserPackages UserPackages [not null]
-  UserRescueCharges UserRescueCharges [not null]
   UserNotifications UserNotifications [not null]
   UserPreference UserPreference [not null]
   Messages Messages [not null]
@@ -33,6 +31,8 @@ Table Users {
   DriversLocation DriversLocation
   driverReviews DriverReviews [not null]
   reviewedBy DriverReviews [not null]
+  UserVehicles UserVehicles
+  UserRescueCharges UserRescueCharges
 }
 
 Table UserAddress {
@@ -68,7 +68,7 @@ Table UserStatus {
 
 Table UserVehicles {
   id Int [pk, increment]
-  userId Int [not null]
+  userId Int [unique, not null]
   car String [not null]
   model String [not null]
   about String [not null]
@@ -122,7 +122,7 @@ Table UserPackages {
 
 Table UserRescueCharges {
   id Int [pk, increment]
-  userId Int [not null]
+  userId Int [unique, not null]
   chargesUsed Int [not null]
   chargesRemaining Int [not null]
   createdAt DateTime [default: `now()`, not null]
@@ -157,6 +157,7 @@ Table Conversations {
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
   Messages Messages [not null]
+  JobRequests JobRequests
 }
 
 Table Messages {
@@ -188,10 +189,14 @@ Table JobRequests {
   milesRequired Int [not null]
   radius Float [not null]
   chargingType String [not null]
-  userAccepted Boolean [not null, default: false]
+  hasAccepted Boolean [not null, default: false]
+  hasPaid Boolean [not null, default: false]
+  hasLeftReview Boolean [not null, default: false]
+  conversationId Int [unique]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
   User Users [not null]
+  Conversation Conversations
   JobOffers JobOffers [not null]
 }
 
@@ -312,7 +317,7 @@ Enum ORDER_STATUS {
   COMPLETE
 }
 
-Enum LOGIN_METHOS {
+Enum LOGIN_METHODS {
   EMAIL
   PHONE_NUMBER
   GOOGLE
@@ -326,7 +331,7 @@ Ref: UserOTP.userId > Users.id [delete: Cascade]
 
 Ref: UserStatus.userId > Users.id
 
-Ref: UserVehicles.userId > Users.id
+Ref: UserVehicles.userId - Users.id
 
 Ref: DriverDetails.userId > Users.id
 
@@ -336,7 +341,7 @@ Ref: UserPackages.userId > Users.id
 
 Ref: UserPackages.packageId > Packages.id
 
-Ref: UserRescueCharges.userId > Users.id
+Ref: UserRescueCharges.userId - Users.id
 
 Ref: UserNotifications.userId > Users.id
 
@@ -351,6 +356,8 @@ Ref: DriverReviews.driverId > Users.id
 Ref: DriverReviews.userId > Users.id
 
 Ref: JobRequests.userId > Users.id
+
+Ref: JobRequests.conversationId - Conversations.id
 
 Ref: JobOffers.jobRequestId > JobRequests.id
 

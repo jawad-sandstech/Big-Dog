@@ -36,9 +36,18 @@ const rejectJob = Joi.object({
   body: Joi.object({}),
 });
 
+const confirmJob = Joi.object({
+  query: Joi.object({}),
+  params: Joi.object({
+    jobOfferId: Joi.number().required(),
+  }),
+  body: Joi.object({}),
+});
+
 module.exports = {
   createJob,
   updateJob,
   acceptJob,
   rejectJob,
+  confirmJob,
 };

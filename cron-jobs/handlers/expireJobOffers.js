@@ -4,6 +4,8 @@ const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
 
 const expireJobOffers = async () => {
+  logger.info('expireJobOffers cron job running...');
+
   const fiveMinutesAgo = moment().subtract(5, 'minutes').toDate();
 
   try {
