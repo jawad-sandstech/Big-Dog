@@ -246,12 +246,15 @@ model Products {
 }
 
 model ProductImages {
-  id        Int      @id @default(autoincrement())
-  productId Int
-  imageUrl  String
-  isPrimary Boolean
-  createdAt DateTime @default(now())
-  Product   Products @relation(fields: [productId], references: [id])
+  id           Int      @id @default(autoincrement())
+  productId    Int
+  originalName String
+  fileName     String
+  mimetype     String
+  size         Int
+  isPrimary    Boolean
+  createdAt    DateTime @default(now())
+  Product      Products @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
 
 model Orders {
@@ -288,11 +291,14 @@ model Feedback {
 }
 
 model FeedbackImages {
-  id         Int      @id @default(autoincrement())
-  feedbackId Int
-  imageUrl   String
-  createdAt  DateTime @default(now())
-  Feedback   Feedback @relation(fields: [feedbackId], references: [id])
+  id           Int      @id @default(autoincrement())
+  feedbackId   Int
+  originalName String
+  fileName     String
+  mimetype     String
+  size         Float
+  createdAt    DateTime @default(now())
+  Feedback     Feedback @relation(fields: [feedbackId], references: [id])
 }
 
 enum USER_ROLES {

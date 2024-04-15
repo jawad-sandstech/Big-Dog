@@ -9,7 +9,9 @@ const getAllFeedbacks = Joi.object({
 const createFeedbacks = Joi.object({
   query: Joi.object({}),
   params: Joi.object({}),
-  body: Joi.object({}),
+  body: Joi.object({
+    text: Joi.string().required(),
+  }),
 });
 
 module.exports = {

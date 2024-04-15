@@ -859,3 +859,415 @@
 {"level":"info","message":"expireOldOTPs cron job running..."}
 {"level":"info","message":"expireJobOffers cron job running..."}
 {"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"error","message":"\nInvalid `tx.products.create()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:89:41\n\n  86 \n  87 try {\n  88   await prisma.$transaction(async (tx) => {\n→ 89     const product = await tx.products.create({\n           data: {\n             categoryId: \"1\",\n                         ~~~\n             name: \"product 1\",\n             description: \"...\",\n             price: \"100\"\n           }\n         })\n\nArgument `categoryId`: Invalid value provided. Expected Int, provided String."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.productImages.create()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:30:33\n\n  27 \n  28 await s3.send(command);\n  29 \n→ 30 return prisma.productImages.create({\n       data: {\n         productId: 1,\n         originalName: \"wolfgang-hasselmann-NCtKzKYfW6I-unsplash.jpg\",\n         fileName: \"product-images/3bd6bf1cdfe7a95b1b83313d6dd63f20dbeeb118823fe7262190b509d3a73366\",\n         mimetype: \"image/jpeg\",\n         size: 1491417,\n         isPrimary: false,\n     +   imageUrl: String\n       }\n     })\n\nArgument `imageUrl` is missing."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.productImages.create()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:30:33\n\n  27 \n  28 await s3.send(command);\n  29 \n→ 30 return prisma.productImages.create(\nForeign key constraint failed on the field: `productId`"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"error","message":"\nInvalid `prisma.productImages.create()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:30:32\n\n  27 \n  28 await s3.send(command);\n  29 \n→ 30 await prisma.productImages.create(\nForeign key constraint failed on the field: `productId`"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `tx.productImages.create()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:30:28\n\n  27 \n  28 await s3.send(command);\n  29 \n→ 30 await tx.productImages.create(\nTransaction API error: Transaction already closed: A query cannot be executed on an expired transaction. The timeout for this transaction was 5000 ms, however 6295 ms passed since the start of the transaction. Consider increasing the interactive transaction timeout or doing less work in the transaction."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"error","message":"\nInvalid `prisma.productImages.create()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:30:32\n\n  27 \n  28 await s3.send(command);\n  29 \n→ 30 await prisma.productImages.create(\nForeign key constraint failed on the field: `productId`"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.products.update()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:123:27\n\n  120 const images = req.files;\n  121 \n  122 try {\n→ 123   await prisma.products.update({\n          where: {\n        +   id: Int\n          },\n          data: {}\n        })\n\nArgument `id` is missing."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `tx.products.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:146:31\n\n  143 \n  144 try {\n  145   await prisma.$transaction(async (tx) => {\n→ 146     await tx.products.delete(\nForeign key constraint failed on the field: `productId`"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.products.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:145:33\n\n  142 const productId = Number(req.params.productId);\n  143 \n  144 try {\n→ 145   await prisma.products.delete(\nForeign key constraint failed on the field: `productId`"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.products.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:146:33\n\n  143 \n  144 try {\n  145   const productImages = await prisma.productImages.findMany({ where: { productId } });\n→ 146   await prisma.products.delete(\nForeign key constraint failed on the field: `productId`"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.products.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:145:33\n\n  142 const productId = Number(req.params.productId);\n  143 \n  144 try {\n→ 145   await prisma.products.delete(\nForeign key constraint failed on the field: `productId`"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.products.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:145:33\n\n  142 const productId = Number(req.params.productId);\n  143 \n  144 try {\n→ 145   await prisma.products.delete(\nForeign key constraint failed on the field: `productId`"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.products.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:147:33\n\n  144 console.log(productId);\n  145 \n  146 try {\n→ 147   await prisma.products.delete(\nForeign key constraint failed on the field: `productId`"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"error","message":"\nInvalid `prisma.productImages.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:55:39\n\n  52 const command = new DeleteObjectCommand(params);\n  53 await s3.send(command);\n  54 \n→ 55 return prisma.productImages.delete(\nAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"error","message":"\nInvalid `prisma.feedback.create()` invocation in\nD:\\projects\\Big-Dog\\controllers\\feedbacks\\feedbacks.controllers.js:76:44\n\n  73 const images = req.files;\n  74 \n  75 try {\n→ 76   const feedback = await prisma.feedback.create({\n         data: {\n           text: \"lorem ipsum\",\n       +   User: {\n       +     create: UsersCreateWithoutFeedbackInput | UsersUncheckedCreateWithoutFeedbackInput,\n       +     connectOrCreate: UsersCreateOrConnectWithoutFeedbackInput,\n       +     connect: UsersWhereUniqueInput\n       +   }\n         }\n       })\n\nArgument `User` is missing."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
