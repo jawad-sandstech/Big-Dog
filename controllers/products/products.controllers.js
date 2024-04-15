@@ -156,6 +156,7 @@ const deleteProduct = async (req, res) => {
       const command = new DeleteObjectCommand(params);
       await s3.send(command);
     });
+
     await Promise.all(deleteImagePromises);
 
     const response = deleteSuccessResponse();

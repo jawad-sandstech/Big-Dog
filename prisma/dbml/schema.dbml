@@ -331,27 +331,27 @@ Enum LOGIN_METHODS {
   APPLE
 }
 
-Ref: UserAddress.userId > Users.id
+Ref: UserAddress.userId > Users.id [delete: Cascade]
 
 Ref: UserOTP.userId > Users.id [delete: Cascade]
 
-Ref: UserStatus.userId > Users.id
+Ref: UserStatus.userId > Users.id [delete: Cascade]
 
-Ref: UserVehicles.userId - Users.id
+Ref: UserVehicles.userId - Users.id [delete: Cascade]
 
-Ref: DriverDetails.userId > Users.id
+Ref: DriverDetails.userId > Users.id [delete: Cascade]
 
-Ref: DriversLocation.userId - Users.id
+Ref: DriversLocation.userId - Users.id [delete: Cascade]
 
-Ref: UserPackages.userId > Users.id
+Ref: UserPackages.userId > Users.id [delete: Cascade]
 
 Ref: UserPackages.packageId > Packages.id
 
-Ref: UserRescueCharges.userId - Users.id
+Ref: UserRescueCharges.userId - Users.id [delete: Cascade]
 
-Ref: UserNotifications.userId > Users.id
+Ref: UserNotifications.userId > Users.id [delete: Cascade]
 
-Ref: UserPreference.userId > Users.id
+Ref: UserPreference.userId > Users.id [delete: Cascade]
 
 Ref: Messages.conversationId > Conversations.id [delete: Cascade]
 

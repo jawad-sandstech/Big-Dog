@@ -57,7 +57,7 @@ model UserAddress {
   streetAddress String
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-  User          Users    @relation(fields: [userId], references: [id])
+  User          Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model UserOTP {
@@ -76,7 +76,7 @@ model UserStatus {
   userId   Int
   isOnline Boolean
   lastSeen DateTime
-  User     Users    @relation(fields: [userId], references: [id])
+  User     Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model UserVehicles {
@@ -87,7 +87,7 @@ model UserVehicles {
   about     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  User      Users    @relation(fields: [userId], references: [id])
+  User      Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model DriverDetails {
@@ -96,7 +96,7 @@ model DriverDetails {
   vehicleDetails String
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
-  User           Users    @relation(fields: [userId], references: [id])
+  User           Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model DriversLocation {
@@ -106,7 +106,7 @@ model DriversLocation {
   longitude Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  User      Users    @relation(fields: [userId], references: [id])
+  User      Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Packages {
@@ -129,7 +129,7 @@ model UserPackages {
   expireAt  DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  User      Users    @relation(fields: [userId], references: [id])
+  User      Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
   Package   Packages @relation(fields: [packageId], references: [id])
 }
 
@@ -140,7 +140,7 @@ model UserRescueCharges {
   chargesRemaining Int
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
-  User             Users    @relation(fields: [userId], references: [id])
+  User             Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model UserNotifications {
@@ -153,14 +153,14 @@ model UserNotifications {
   metadata    Json
   hasSeen     Boolean
   createdAt   DateTime          @default(now())
-  User        Users             @relation(fields: [userId], references: [id])
+  User        Users             @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model UserPreference {
   id                       Int     @id @default(autoincrement())
   userId                   Int
   receivePushNotifications Boolean
-  User                     Users   @relation(fields: [userId], references: [id])
+  User                     Users   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Conversations {

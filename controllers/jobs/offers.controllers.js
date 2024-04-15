@@ -186,14 +186,14 @@ const confirmJob = async (req, res) => {
     // price calculation logic
 
     // let pricePerMeter;
-    // let decrementChargesRemaining;
+    // let decrementRemainingCharges;
 
     // if (user.UserRescueCharges.chargesRemaining > 0) {
     //   pricePerMeter = user.UserPackages[0].Package.pricePerMile;
-    //   decrementChargesRemaining = true;
+    //   decrementRemainingCharges = true;
     // } else {
     //   pricePerMeter = process.env.PRICE_PER_METER;
-    //   decrementChargesRemaining = false;
+    //   decrementRemainingCharges = false;
     // }
 
     // ! price calculation logic
@@ -203,7 +203,7 @@ const confirmJob = async (req, res) => {
       user.id,
       user.email,
       user.phoneNumber,
-      // decrementChargesRemaining,
+      // decrementRemainingCharges,
       100,
     );
 
