@@ -260,7 +260,7 @@ model ProductImages {
 model Orders {
   id           Int            @id @default(autoincrement())
   userId       Int
-  status       ORDER_STATUS
+  status       ORDER_STATUS   @default(PENDING)
   totalAmount  Float
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt

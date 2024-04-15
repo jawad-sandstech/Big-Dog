@@ -1271,3 +1271,80 @@
 {"level":"info","message":"expireOldOTPs cron job running..."}
 {"level":"info","message":"expireJobOffers cron job running..."}
 {"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.driverReviews.create()` invocation in\nD:\\projects\\Big-Dog\\controllers\\users\\reviews.controllers.js:30:47\n\n  27 const data = req.body;\n  28 \n  29 try {\n→ 30   const review = await prisma.driverReviews.create({\n         data: {\n           driverId: \"9\",\n                     ~~~\n           userId: 12,\n           rating: 5,\n           comment: \"lorem ipsum ...\"\n         }\n       })\n\nArgument `driverId`: Invalid value provided. Expected Int, provided String."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.driverReviews.findMany()` invocation in\nD:\\projects\\Big-Dog\\controllers\\users\\reviews.controllers.js:10:48\n\n   7 const { userId } = req.params;\n   8 \n   9 try {\n→ 10   const reviews = await prisma.driverReviews.findMany({\n         where: {\n           driverId: \"9\"\n                     ~~~\n         },\n         include: {\n           Reviewer: true\n         }\n       })\n\nArgument `driverId`: Invalid value provided. Expected IntFilter or Int, provided String."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Product with ID 1 not found"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}

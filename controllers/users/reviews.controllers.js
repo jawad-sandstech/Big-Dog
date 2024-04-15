@@ -1,14 +1,14 @@
-const { okResponse, serverErrorResponse } = require('generic-response');
+const { okResponse, serverErrorResponse, createSuccessResponse } = require('generic-response');
 
 const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
 
 const getReviews = async (req, res) => {
-  const { userId } = req.params;
+  const driverId = Number(req.params.userId);
 
   try {
     const reviews = await prisma.driverReviews.findMany({
-      where: { driverId: userId },
+      where: { driverId },
       include: { Reviewer: true },
     });
 
@@ -22,10 +22,21 @@ const getReviews = async (req, res) => {
 };
 
 const createReview = async (req, res) => {
-  const { userId } = req.params;
+  const driverId = Number(req.params.userId);
+  const { userId } = req.user;
+  const data = req.body;
 
   try {
-    // ...code
+    const review = await prisma.driverReviews.create({
+      data: {
+        driverId,
+        userId,
+        ...data,
+      },
+    });
+
+    const response = createSuccessResponse(review);
+    return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);
     const response = serverErrorResponse(error.message);

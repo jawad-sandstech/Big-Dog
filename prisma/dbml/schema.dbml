@@ -247,7 +247,7 @@ Table ProductImages {
 Table Orders {
   id Int [pk, increment]
   userId Int [not null]
-  status ORDER_STATUS [not null]
+  status ORDER_STATUS [not null, default: 'PENDING']
   totalAmount Float [not null]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
