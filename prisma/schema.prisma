@@ -299,6 +299,77 @@ model FeedbackImages {
   Feedback     Feedback @relation(fields: [feedbackId], references: [id])
 }
 
+model ResidentialPowerOutage {
+  id                     Int      @id @default(autoincrement())
+  fullName               String
+  address                String
+  phone                  String
+  time                   String
+  NoOfFloors             String
+  SqFt                   String
+  noOfStories            String
+  elevator               String
+  requireHardHad         String
+  describeSituation      String
+  noOfItemsNeededToPower String
+  noOfLights             String
+  TTLWatts               String
+  noOfHoursPowerIsNeeded String
+  listItemsNeededToPower String
+  createdAt              DateTime @default(now())
+}
+
+model CommercialOrFleetServices {
+  id                 Int      @id @default(autoincrement())
+  companyName        String
+  numberOfCars       String
+  intervals          String
+  averageChargeLevel String
+  typeOfVehicle      String
+  address            String
+  createdAt          DateTime @default(now())
+}
+
+model ConstructionSite {
+  id                     Int      @id @default(autoincrement())
+  fullName               String
+  address                String
+  phone                  String
+  time                   String
+  NoOfFloors             String
+  SqFt                   String
+  noOfStories            String
+  elevator               String
+  requireHardHad         String
+  describeSituation      String
+  noOfItemsNeededToPower String
+  noOfLights             String
+  TTLWatts               String
+  noOfHoursPowerIsNeeded String
+  listItemsNeededToPower String
+  createdAt              DateTime @default(now())
+}
+
+model Campsite {
+  id                     Int      @id @default(autoincrement())
+  fullName               String
+  address                String
+  phone                  String
+  time                   String
+  NoOfFloors             String
+  SqFt                   String
+  noOfStories            String
+  elevator               String
+  requireHardHad         String
+  describeSituation      String
+  noOfItemsNeededToPower String
+  noOfLights             String
+  TTLWatts               String
+  noOfHoursPowerIsNeeded String
+  listItemsNeededToPower String
+  createdAt              DateTime @default(now())
+}
+
 enum USER_ROLES {
   USER
   DRIVER

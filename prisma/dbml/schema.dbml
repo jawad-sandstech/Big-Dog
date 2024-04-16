@@ -286,6 +286,77 @@ Table FeedbackImages {
   Feedback Feedback [not null]
 }
 
+Table ResidentialPowerOutage {
+  id Int [pk, increment]
+  fullName String [not null]
+  address String [not null]
+  phone String [not null]
+  time String [not null]
+  NoOfFloors String [not null]
+  SqFt String [not null]
+  noOfStories String [not null]
+  elevator String [not null]
+  requireHardHad String [not null]
+  describeSituation String [not null]
+  noOfItemsNeededToPower String [not null]
+  noOfLights String [not null]
+  TTLWatts String [not null]
+  noOfHoursPowerIsNeeded String [not null]
+  listItemsNeededToPower String [not null]
+  createdAt DateTime [default: `now()`, not null]
+}
+
+Table CommercialOrFleetServices {
+  id Int [pk, increment]
+  companyName String [not null]
+  numberOfCars String [not null]
+  intervals String [not null]
+  averageChargeLevel String [not null]
+  typeOfVehicle String [not null]
+  address String [not null]
+  createdAt DateTime [default: `now()`, not null]
+}
+
+Table ConstructionSite {
+  id Int [pk, increment]
+  fullName String [not null]
+  address String [not null]
+  phone String [not null]
+  time String [not null]
+  NoOfFloors String [not null]
+  SqFt String [not null]
+  noOfStories String [not null]
+  elevator String [not null]
+  requireHardHad String [not null]
+  describeSituation String [not null]
+  noOfItemsNeededToPower String [not null]
+  noOfLights String [not null]
+  TTLWatts String [not null]
+  noOfHoursPowerIsNeeded String [not null]
+  listItemsNeededToPower String [not null]
+  createdAt DateTime [default: `now()`, not null]
+}
+
+Table Campsite {
+  id Int [pk, increment]
+  fullName String [not null]
+  address String [not null]
+  phone String [not null]
+  time String [not null]
+  NoOfFloors String [not null]
+  SqFt String [not null]
+  noOfStories String [not null]
+  elevator String [not null]
+  requireHardHad String [not null]
+  describeSituation String [not null]
+  noOfItemsNeededToPower String [not null]
+  noOfLights String [not null]
+  TTLWatts String [not null]
+  noOfHoursPowerIsNeeded String [not null]
+  listItemsNeededToPower String [not null]
+  createdAt DateTime [default: `now()`, not null]
+}
+
 Enum USER_ROLES {
   USER
   DRIVER
