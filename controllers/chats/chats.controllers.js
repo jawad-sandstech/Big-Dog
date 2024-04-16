@@ -9,11 +9,38 @@ const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
 
 const getAllMessages = async (req, res) => {
-  const { chatId: chatIdStr } = req.params;
-
-  const chatId = Number(chatIdStr);
+  const chatId = Number(req.params.chatId);
+  const { userId } = req.user;
 
   try {
+    const existingConversation = await prisma.conversations.findUnique({
+      where: { id: chatId },
+      include: {
+        JobRequests: {
+          include: {
+            JobOffers: {
+              where: {
+                status: 'ACCEPTED',
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!existingConversation) {
+      const response = notFoundResponse(`Conversation with id: ${chatId} not found.`);
+      return res.status(response.status.code).json(response);
+    }
+
+    if (
+      existingConversation.JobRequests.userId !== userId &&
+      existingConversation.JobRequests.JobOffers[0].driverId !== userId
+    ) {
+      const response = unauthorizedResponse();
+      return res.status(response.status.code).json(response);
+    }
+
     const messages = await prisma.messages.findMany({
       where: { conversationId: chatId },
     });
@@ -28,11 +55,9 @@ const getAllMessages = async (req, res) => {
 };
 
 const createMessage = async (req, res) => {
-  const { chatId: chatIdStr } = req.params;
+  const chatId = Number(req.params.chatId);
   const { content } = req.body;
   const { userId } = req.user;
-
-  const chatId = Number(chatIdStr);
 
   try {
     const existingConversation = await prisma.conversations.findUnique({

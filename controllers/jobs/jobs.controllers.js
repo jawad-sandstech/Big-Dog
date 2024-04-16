@@ -10,11 +10,43 @@ const {
 const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
 
-const getConversationIdOfJobRequest = async (req, res) => {
-  const { jobId: jobIdStr } = req.params;
+const getSingleJobRequest = async (req, res) => {
+  const jobId = Number(req.params.jobId);
   const { userId } = req.user;
 
-  const jobId = Number(jobIdStr);
+  try {
+    const existingJob = await prisma.jobRequests.findUnique({
+      where: { id: jobId },
+    });
+
+    if (!existingJob) {
+      const response = notFoundResponse(`Job with id: ${jobId} not found.`);
+      return res.status(response.status.code).json(response);
+    }
+
+    const jobOffers = await prisma.jobOffers.findMany({
+      where: { jobRequestId: existingJob.id },
+    });
+
+    const driverIds = jobOffers.map((i) => i.driverId);
+
+    if (existingJob.userId !== userId && !driverIds.some((i) => i === userId)) {
+      const response = unauthorizedResponse();
+      return res.status(response.status.code).json(response);
+    }
+
+    const response = okResponse(existingJob);
+    return res.status(response.status.code).json(response);
+  } catch (error) {
+    logger.error(error.message);
+    const response = serverErrorResponse(error.message);
+    return res.status(response.status.code).json(response);
+  }
+};
+
+const getConversationIdOfJobRequest = async (req, res) => {
+  const jobId = Number(req.params.jobId);
+  const { userId } = req.user;
 
   try {
     const existingJob = await prisma.jobRequests.findUnique({
@@ -74,13 +106,15 @@ const createJob = async (req, res) => {
 
     const driversWithinRadius = onlineDrivers.filter((driver) => {
       const distance = geolib.getDistance(
-        { latitude: parseFloat(data.latitude), longitude: parseFloat(data.longitude) },
+        { latitude: parseFloat(job.latitude), longitude: parseFloat(job.longitude) },
         {
           latitude: parseFloat(driver.DriversLocation.latitude),
           longitude: parseFloat(driver.DriversLocation.longitude),
         },
       );
-      return distance <= data.radius;
+
+      const radiusInMeters = data.radius * 1609.34;
+      return distance <= radiusInMeters;
     });
 
     await Promise.all(
@@ -105,8 +139,8 @@ const createJob = async (req, res) => {
 
 const updateJob = async (req, res) => {
   const { userId } = req.user;
-  const { jobId } = req.params;
-  const data = req.body;
+  const jobId = Number(req.params.jobId);
+  const { radius: radiusInMiles } = req.body;
 
   try {
     const existingJob = await prisma.jobRequests.findUnique({ where: { id: jobId } });
@@ -123,9 +157,7 @@ const updateJob = async (req, res) => {
 
     const job = await prisma.jobRequests.update({
       where: { id: jobId },
-      data: {
-        ...data,
-      },
+      data: { radius: radiusInMiles },
     });
 
     const onlineDrivers = await prisma.users.findMany({
@@ -144,13 +176,15 @@ const updateJob = async (req, res) => {
 
     const driversWithinRadius = onlineDrivers.filter((driver) => {
       const distance = geolib.getDistance(
-        { latitude: parseFloat(data.latitude), longitude: parseFloat(data.longitude) },
+        { latitude: parseFloat(job.latitude), longitude: parseFloat(job.longitude) },
         {
           latitude: parseFloat(driver.DriversLocation.latitude),
           longitude: parseFloat(driver.DriversLocation.longitude),
         },
       );
-      return distance <= data.radius;
+
+      const radiusInMeters = radiusInMiles * 1609.34;
+      return distance <= radiusInMeters;
     });
 
     await prisma.jobOffers.deleteMany({
@@ -178,6 +212,7 @@ const updateJob = async (req, res) => {
 };
 
 module.exports = {
+  getSingleJobRequest,
   getConversationIdOfJobRequest,
   createJob,
   updateJob,

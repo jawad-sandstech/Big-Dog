@@ -9,6 +9,12 @@ const jobsControllers = require('../../controllers/jobs/jobs.controllers');
 const router = express.Router();
 
 router.get(
+  '/:jobId',
+  authRequired,
+  validateRequest(jobsValidations.getSingleJobRequest),
+  jobsControllers.getSingleJobRequest,
+);
+router.get(
   '/:jobId/conversation-id',
   authRequired,
   validateRequest(jobsValidations.getConversationIdOfJobRequest),

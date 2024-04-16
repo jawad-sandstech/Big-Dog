@@ -64,9 +64,14 @@ const handlePackagePurchase = async (paymentIntent) => {
 };
 
 const handleJobConfirmation = async (paymentIntent) => {
-  const { userId: userIdStr, decrementChargesRemaining, jobRequestId } = paymentIntent.metadata;
+  const {
+    userId: userIdStr,
+    jobRequestId: jobRequestIdStr,
+    decrementChargesRemaining,
+  } = paymentIntent.metadata;
 
   const userId = Number(userIdStr);
+  const jobRequestId = Number(jobRequestIdStr);
 
   const jobRequest = await prisma.jobRequests.update({
     where: { id: jobRequestId },

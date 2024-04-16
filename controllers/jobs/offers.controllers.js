@@ -11,7 +11,7 @@ const {
 const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
 
-const createPaymentIntent = async (jobRequestId, userId, userEmail, userPhoneNumber, amount) => {
+const createPaymentIntent = async (amount, metadata) => {
   const amountInCents = amount * 1000;
 
   const paymentIntent = await stripe.paymentIntents.create({
@@ -19,10 +19,7 @@ const createPaymentIntent = async (jobRequestId, userId, userEmail, userPhoneNum
     currency: 'usd',
     metadata: {
       type: 'CONFIRMED_JOB',
-      userId,
-      userEmail,
-      userPhoneNumber,
-      jobRequestId,
+      ...metadata,
     },
   });
 
@@ -34,7 +31,7 @@ const createPaymentIntent = async (jobRequestId, userId, userEmail, userPhoneNum
 
 const acceptJob = async (req, res) => {
   const { userId } = req.user;
-  const { jobOfferId } = req.params;
+  const jobOfferId = Number(req.params.jobOfferId);
 
   try {
     const existingJobOffer = await prisma.jobOffers.findUnique({ where: { id: jobOfferId } });
@@ -89,7 +86,7 @@ const acceptJob = async (req, res) => {
 
 const rejectJob = async (req, res) => {
   const { userId } = req.user;
-  const { jobOfferId } = req.params;
+  const jobOfferId = Number(req.params.jobOfferId);
 
   try {
     const existingJobOffer = await prisma.jobOffers.findUnique({ where: { id: jobOfferId } });
@@ -134,12 +131,10 @@ const rejectJob = async (req, res) => {
 };
 
 const confirmJob = async (req, res) => {
+  const jobOfferId = Number(req.params.jobOfferId);
   const { userId } = req.user;
-  const { jobOfferId: jobOfferIdStr } = req.user;
 
   try {
-    const jobOfferId = Number(jobOfferIdStr);
-
     const user = await prisma.users.findUnique({
       where: { id: userId },
       include: {
@@ -169,12 +164,12 @@ const confirmJob = async (req, res) => {
     const jobRequest = existingJobOffer.JobRequest;
 
     if (jobRequest.userId !== userId) {
-      const response = unauthorizedResponse('not yours');
+      const response = unauthorizedResponse('Not yours, Why you paying?');
       return res.status(response.status.code).json(response);
     }
 
-    if (jobRequest.hasAccepted) {
-      const response = badRequestResponse('Already accepted.');
+    if (existingJobOffer.status !== 'ACCEPTED') {
+      const response = badRequestResponse('The job offer not accepted, Why you paying?');
       return res.status(response.status.code).json(response);
     }
 
@@ -185,27 +180,26 @@ const confirmJob = async (req, res) => {
 
     // price calculation logic
 
-    // let pricePerMeter;
-    // let decrementRemainingCharges;
+    let pricePerMeter;
+    let decrementRemainingCharges;
 
-    // if (user.UserRescueCharges.chargesRemaining > 0) {
-    //   pricePerMeter = user.UserPackages[0].Package.pricePerMile;
-    //   decrementRemainingCharges = true;
-    // } else {
-    //   pricePerMeter = process.env.PRICE_PER_METER;
-    //   decrementRemainingCharges = false;
-    // }
+    if (user.UserRescueCharges?.chargesRemaining > 0) {
+      pricePerMeter = user.UserPackages[0].Package.pricePerMile;
+      decrementRemainingCharges = true;
+    } else {
+      pricePerMeter = process.env.PRICE_PER_METER;
+      decrementRemainingCharges = false;
+    }
 
     // ! price calculation logic
 
-    const paymentIntent = await createPaymentIntent(
-      jobRequest.id,
-      user.id,
-      user.email,
-      user.phoneNumber,
-      // decrementRemainingCharges,
-      100,
-    );
+    const paymentIntent = await createPaymentIntent(100, {
+      jobRequestId: jobRequest.id,
+      userId: user.id,
+      userEmail: user.email,
+      userPhoneNumber: user.phoneNumber,
+      decrementRemainingCharges,
+    });
 
     const response = okResponse({ paymentIntent });
     return res.status(response.status.code).json(response);
