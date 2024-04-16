@@ -4,6 +4,7 @@ const multer = require('multer');
 const storage = require('../../config/multer.config');
 
 const authRequired = require('../../middlewares/authRequired.middleware');
+const rolesRequired = require('../../middlewares/rolesRequired.middleware');
 const validateRequest = require('../../middlewares/validateRequest.middleware');
 
 const productsValidations = require('../../validations/products/products');
@@ -21,6 +22,7 @@ router.get(
 router.post(
   '/',
   authRequired,
+  rolesRequired(['ADMIN']),
   upload.array('images'),
   validateRequest(productsValidations.createProduct),
   productsControllers.createProduct,
@@ -28,6 +30,7 @@ router.post(
 router.patch(
   '/:productId',
   authRequired,
+  rolesRequired(['ADMIN']),
   upload.array('images'),
   validateRequest(productsValidations.updateProduct),
   productsControllers.updateProduct,
@@ -35,6 +38,7 @@ router.patch(
 router.delete(
   '/:productId',
   authRequired,
+  rolesRequired(['ADMIN']),
   validateRequest(productsValidations.deleteProduct),
   productsControllers.deleteProduct,
 );

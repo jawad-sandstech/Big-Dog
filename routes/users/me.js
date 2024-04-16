@@ -1,6 +1,7 @@
 const express = require('express');
 
 const authRequired = require('../../middlewares/authRequired.middleware');
+const rolesRequired = require('../../middlewares/rolesRequired.middleware');
 const validateRequest = require('../../middlewares/validateRequest.middleware');
 
 const meValidations = require('../../validations/users/me');
@@ -23,6 +24,7 @@ router.patch(
 router.patch(
   '/update-location',
   authRequired,
+  rolesRequired(['DRIVER']),
   validateRequest(meValidations.updateLocation),
   meControllers.updateLocation,
 );

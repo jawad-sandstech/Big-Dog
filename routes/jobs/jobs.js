@@ -1,6 +1,7 @@
 const express = require('express');
 
 const authRequired = require('../../middlewares/authRequired.middleware');
+const rolesRequired = require('../../middlewares/rolesRequired.middleware');
 const validateRequest = require('../../middlewares/validateRequest.middleware');
 
 const jobsValidations = require('../../validations/jobs/jobs');
@@ -23,12 +24,14 @@ router.get(
 router.post(
   '/',
   authRequired,
+  rolesRequired(['USER']),
   validateRequest(jobsValidations.createJob),
   jobsControllers.createJob,
 );
 router.patch(
   '/:jobId',
   authRequired,
+  rolesRequired(['USER']),
   validateRequest(jobsValidations.updateJob),
   jobsControllers.updateJob,
 );
