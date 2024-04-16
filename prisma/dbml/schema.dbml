@@ -14,6 +14,7 @@ Table Users {
   email String
   phoneNumber String
   isProfileComplete Boolean [not null, default: false]
+  fcmToken String
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
   UserAddress UserAddress [not null]
@@ -22,7 +23,6 @@ Table Users {
   DriverDetails DriverDetails [not null]
   UserPackages UserPackages [not null]
   UserNotifications UserNotifications [not null]
-  UserPreference UserPreference [not null]
   Messages Messages [not null]
   JobRequests JobRequests [not null]
   JobOffers JobOffers [not null]
@@ -33,6 +33,7 @@ Table Users {
   reviewedBy DriverReviews [not null]
   UserVehicles UserVehicles
   UserRescueCharges UserRescueCharges
+  UserPreference UserPreference
 }
 
 Table UserAddress {
@@ -133,19 +134,16 @@ Table UserRescueCharges {
 Table UserNotifications {
   id Int [pk, increment]
   userId Int [not null]
-  image String [not null]
   title String [not null]
   description String [not null]
-  type NOTIFICATION_TYPE [not null]
-  metadata Json [not null]
-  hasSeen Boolean [not null]
+  hasSeen Boolean [not null, default: false]
   createdAt DateTime [default: `now()`, not null]
   User Users [not null]
 }
 
 Table UserPreference {
   id Int [pk, increment]
-  userId Int [not null]
+  userId Int [unique, not null]
   receivePushNotifications Boolean [not null]
   User Users [not null]
 }
@@ -305,11 +303,6 @@ Enum OTPT_TYPE {
   EMAIL
 }
 
-Enum NOTIFICATION_TYPE {
-  USER
-  PRODUCT
-}
-
 Enum JOB_STATUS {
   SENT
   ACCEPTED
@@ -351,7 +344,7 @@ Ref: UserRescueCharges.userId - Users.id [delete: Cascade]
 
 Ref: UserNotifications.userId > Users.id [delete: Cascade]
 
-Ref: UserPreference.userId > Users.id [delete: Cascade]
+Ref: UserPreference.userId - Users.id [delete: Cascade]
 
 Ref: Messages.conversationId > Conversations.id [delete: Cascade]
 

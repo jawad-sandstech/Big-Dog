@@ -27,6 +27,7 @@ model Users {
   email             String?
   phoneNumber       String?
   isProfileComplete Boolean             @default(false)
+  fcmToken          String?
   createdAt         DateTime            @default(now())
   updatedAt         DateTime            @updatedAt
   UserAddress       UserAddress[]
@@ -35,7 +36,6 @@ model Users {
   DriverDetails     DriverDetails[]
   UserPackages      UserPackages[]
   UserNotifications UserNotifications[]
-  UserPreference    UserPreference[]
   Messages          Messages[]
   JobRequests       JobRequests[]
   JobOffers         JobOffers[]
@@ -46,6 +46,7 @@ model Users {
   reviewedBy        DriverReviews[]     @relation("Reviewer")
   UserVehicles      UserVehicles?
   UserRescueCharges UserRescueCharges?
+  UserPreference    UserPreference?
 }
 
 model UserAddress {
@@ -144,21 +145,18 @@ model UserRescueCharges {
 }
 
 model UserNotifications {
-  id          Int               @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   userId      Int
-  image       String
   title       String
   description String
-  type        NOTIFICATION_TYPE
-  metadata    Json
-  hasSeen     Boolean
-  createdAt   DateTime          @default(now())
-  User        Users             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  hasSeen     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  User        Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model UserPreference {
   id                       Int     @id @default(autoincrement())
-  userId                   Int
+  userId                   Int     @unique
   receivePushNotifications Boolean
   User                     Users   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
@@ -316,11 +314,6 @@ enum GENDERS {
 enum OTPT_TYPE {
   PHONE_NUMBER
   EMAIL
-}
-
-enum NOTIFICATION_TYPE {
-  USER
-  PRODUCT
 }
 
 enum JOB_STATUS {
