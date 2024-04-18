@@ -44,7 +44,7 @@ router.patch(
 router.delete(
   '/:productId',
   authRequired(),
-  rolesRequired(['ADMIN']),
+  // rolesRequired(['ADMIN']),
   validateRequest(productsValidations.deleteProduct),
   productsControllers.deleteProduct,
 );

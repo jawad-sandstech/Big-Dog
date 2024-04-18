@@ -110,7 +110,7 @@ const updateProduct = async (req, res) => {
 
     if (images) {
       await prisma.productImages.deleteMany({
-        where: { id: productId },
+        where: { productId },
       });
 
       await prisma.productImages.createMany({
@@ -131,6 +131,15 @@ const deleteProduct = async (req, res) => {
   const productId = Number(req.params.productId);
 
   try {
+    const existingProduct = await prisma.products.findUnique({
+      where: { id: productId },
+    });
+
+    if (!existingProduct) {
+      const response = notFoundResponse(`Product with id: ${productId} not found`);
+      return res.status(response.status.code).json(response);
+    }
+
     const product = await prisma.products.delete({
       where: { id: productId },
       include: { ProductImages: true },
@@ -139,7 +148,7 @@ const deleteProduct = async (req, res) => {
     const deleteImagePromises = product.ProductImages.map(async (image) => {
       const params = {
         Bucket: process.env.BUCKET_NAME,
-        Key: image.fileName,
+        Key: image.path,
       };
 
       const command = new DeleteObjectCommand(params);
@@ -148,7 +157,7 @@ const deleteProduct = async (req, res) => {
 
     await Promise.all(deleteImagePromises);
 
-    const response = deleteSuccessResponse();
+    const response = deleteSuccessResponse(product);
     return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);

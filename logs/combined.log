@@ -2701,3 +2701,66 @@
 {"level":"info","message":"expireJobOffers cron job running..."}
 {"level":"info","message":"expireUserPackages cron job running..."}
 {"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"No value provided for input HTTP label: Key."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.products.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:134:49\n\n  131 const productId = Number(req.params.productId);\n  132 \n  133 try {\n→ 134   const product = await prisma.products.delete(\nAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.products.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:134:49\n\n  131 const productId = Number(req.params.productId);\n  132 \n  133 try {\n→ 134   const product = await prisma.products.delete(\nAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"\nInvalid `prisma.products.delete()` invocation in\nD:\\projects\\Big-Dog\\controllers\\products\\products.controllers.js:134:49\n\n  131 const productId = Number(req.params.productId);\n  132 \n  133 try {\n→ 134   const product = await prisma.products.delete(\nAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist."}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"listening on 6600"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'map')"}
+{"level":"info","message":"listening on 6600"}
+{"level":"info","message":"expireOldOTPs cron job running..."}
+{"level":"info","message":"expireJobOffers cron job running..."}
+{"level":"info","message":"expireUserPackages cron job running..."}
+{"level":"info","message":"listening on 6600"}

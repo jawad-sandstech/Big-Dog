@@ -276,7 +276,7 @@ model OrderDetails {
   price     Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  Order     Orders   @relation(fields: [orderId], references: [id])
+  Order     Orders   @relation(fields: [orderId], references: [id], onDelete: Cascade)
   Product   Products @relation(fields: [productId], references: [id])
 }
 

@@ -21,7 +21,8 @@ const createProduct = Joi.object({
           isPrimary: Joi.boolean().required(),
         }),
       )
-      .single(),
+      .min(1)
+      .required(),
   }),
 });
 
@@ -48,8 +49,8 @@ const updateProduct = Joi.object({
           isPrimary: Joi.boolean().required(),
         }),
       )
-      .optional()
-      .single(),
+      .min(1)
+      .optional(),
   }),
 });
 

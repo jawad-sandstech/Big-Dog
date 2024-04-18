@@ -441,7 +441,7 @@ Ref: ProductImages.productId > Products.id [delete: Cascade]
 
 Ref: Orders.userId > Users.id
 
-Ref: OrderDetails.orderId > Orders.id
+Ref: OrderDetails.orderId > Orders.id [delete: Cascade]
 
 Ref: OrderDetails.productId > Products.id
 
