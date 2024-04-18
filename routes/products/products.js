@@ -22,7 +22,7 @@ router.get(
 router.post(
   '/upload-picture',
   authRequired(),
-  // rolesRequired(['ADMIN']),
+  rolesRequired(['ADMIN']),
   upload.single('image'),
   validateRequest(productsValidations.uploadPicture),
   productsControllers.uploadPicture,
@@ -30,21 +30,21 @@ router.post(
 router.post(
   '/',
   authRequired(),
-  // rolesRequired(['ADMIN']),
+  rolesRequired(['ADMIN']),
   validateRequest(productsValidations.createProduct),
   productsControllers.createProduct,
 );
 router.patch(
   '/:productId',
   authRequired(),
-  // rolesRequired(['ADMIN']),
+  rolesRequired(['ADMIN']),
   validateRequest(productsValidations.updateProduct),
   productsControllers.updateProduct,
 );
 router.delete(
   '/:productId',
   authRequired(),
-  // rolesRequired(['ADMIN']),
+  rolesRequired(['ADMIN']),
   validateRequest(productsValidations.deleteProduct),
   productsControllers.deleteProduct,
 );
