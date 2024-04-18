@@ -6,6 +6,7 @@ Table Users {
   id Int [pk, increment]
   firstName String
   lastName String
+  profilePicture String
   dateOfBirth DateTime
   bio String
   gender GENDERS
@@ -237,10 +238,7 @@ Table Products {
 Table ProductImages {
   id Int [pk, increment]
   productId Int [not null]
-  originalName String [not null]
-  fileName String [not null]
-  mimetype String [not null]
-  size Int [not null]
+  path String [not null]
   isPrimary Boolean [not null]
   createdAt DateTime [default: `now()`, not null]
   Product Products [not null]

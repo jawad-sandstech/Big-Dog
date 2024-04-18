@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+const { PutObjectCommand } = require('@aws-sdk/client-s3');
 const {
   okResponse,
   serverErrorResponse,
@@ -7,6 +9,7 @@ const {
 
 const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
+const s3 = require('../../config/s3.config');
 
 const getMyProfile = async (req, res) => {
   const { userId } = req.user;
@@ -21,7 +24,43 @@ const getMyProfile = async (req, res) => {
       return res.status(response.status.code).json(response);
     }
 
+    if (user.profilePicture) {
+      user.profilePicture = `${process.env.S3_ACCESS_URL}/${user.profilePicture}`;
+    }
+
     const response = okResponse(user);
+    return res.status(response.status.code).json(response);
+  } catch (error) {
+    logger.error(error.message);
+    const response = serverErrorResponse(error.message);
+    return res.status(response.status.code).json(response);
+  }
+};
+
+const uploadPicture = async (req, res) => {
+  const { file } = req;
+  const { userId } = req.user;
+
+  try {
+    const folderName = 'user-profiles';
+
+    const randomImageName = crypto.randomBytes(32).toString('hex');
+
+    const command = new PutObjectCommand({
+      Bucket: process.env.BUCKET_NAME,
+      Key: `${folderName}/${randomImageName}`,
+      Body: file.buffer,
+      ContentType: file.mimetype,
+    });
+
+    await s3.send(command);
+
+    await prisma.users.update({
+      where: { id: userId },
+      data: { profilePicture: `${folderName}/${randomImageName}` },
+    });
+
+    const response = updateSuccessResponse();
     return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);
@@ -120,6 +159,7 @@ const updateLocation = async (req, res) => {
 
 module.exports = {
   getMyProfile,
+  uploadPicture,
   updateProfile,
   updateLocation,
 };

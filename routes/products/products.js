@@ -20,18 +20,24 @@ router.get(
   productsControllers.getAllProducts,
 );
 router.post(
+  '/upload-picture',
+  authRequired(),
+  // rolesRequired(['ADMIN']),
+  upload.single('image'),
+  validateRequest(productsValidations.uploadPicture),
+  productsControllers.uploadPicture,
+);
+router.post(
   '/',
   authRequired(),
-  rolesRequired(['ADMIN']),
-  upload.array('images'),
+  // rolesRequired(['ADMIN']),
   validateRequest(productsValidations.createProduct),
   productsControllers.createProduct,
 );
 router.patch(
   '/:productId',
   authRequired(),
-  rolesRequired(['ADMIN']),
-  upload.array('images'),
+  // rolesRequired(['ADMIN']),
   validateRequest(productsValidations.updateProduct),
   productsControllers.updateProduct,
 );

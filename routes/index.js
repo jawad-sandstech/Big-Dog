@@ -9,7 +9,7 @@ router.use('/user-packages', require('./userPackages'));
 router.use('/bookings', require('./bookings'));
 router.use('/jobs', require('./jobs'));
 router.use('/chats', require('./chats'));
-router.use('/feedbacks', require('./feedbacks'));
 router.use('/products', require('./products'));
+router.use('/feedbacks', require('./feedbacks'));
 
 module.exports = router;

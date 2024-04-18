@@ -14,7 +14,21 @@ const createProduct = Joi.object({
     name: Joi.string().required(),
     description: Joi.string().required(),
     price: Joi.number().required(),
+    images: Joi.array()
+      .items(
+        Joi.object({
+          path: Joi.string().required(),
+          isPrimary: Joi.boolean().required(),
+        }),
+      )
+      .single(),
   }),
+});
+
+const uploadPicture = Joi.object({
+  query: Joi.object({}),
+  params: Joi.object({}),
+  body: Joi.object({}),
 });
 
 const updateProduct = Joi.object({
@@ -27,6 +41,15 @@ const updateProduct = Joi.object({
     name: Joi.string().optional(),
     description: Joi.string().optional(),
     price: Joi.number().optional(),
+    images: Joi.array()
+      .items(
+        Joi.object({
+          path: Joi.string().required(),
+          isPrimary: Joi.boolean().required(),
+        }),
+      )
+      .optional()
+      .single(),
   }),
 });
 
@@ -41,6 +64,7 @@ const deleteProduct = Joi.object({
 module.exports = {
   getAllProducts,
   createProduct,
+  uploadPicture,
   updateProduct,
   deleteProduct,
 };

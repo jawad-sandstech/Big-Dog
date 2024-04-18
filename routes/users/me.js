@@ -1,4 +1,7 @@
 const express = require('express');
+const multer = require('multer');
+
+const storage = require('../../config/multer.config');
 
 const authRequired = require('../../middlewares/authRequired.middleware');
 const rolesRequired = require('../../middlewares/rolesRequired.middleware');
@@ -9,11 +12,20 @@ const meControllers = require('../../controllers/users/me.controllers');
 
 const router = express.Router();
 
+const upload = multer({ storage });
+
 router.get(
   '/',
   authRequired(),
   validateRequest(meValidations.getMyProfile),
   meControllers.getMyProfile,
+);
+router.post(
+  '/update-profile',
+  authRequired(),
+  upload.single('profile'),
+  validateRequest(meValidations.uploadPicture),
+  meControllers.uploadPicture,
 );
 router.patch(
   '/',

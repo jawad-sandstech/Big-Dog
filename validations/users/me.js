@@ -6,6 +6,12 @@ const getMyProfile = Joi.object({
   body: Joi.object({}),
 });
 
+const uploadPicture = Joi.object({
+  query: Joi.object({}),
+  params: Joi.object({}),
+  body: Joi.object({}),
+});
+
 const updateProfile = Joi.object({
   query: Joi.object({}),
   params: Joi.object({}),
@@ -39,4 +45,5 @@ module.exports = {
   getMyProfile,
   updateProfile,
   updateLocation,
+  uploadPicture,
 };
