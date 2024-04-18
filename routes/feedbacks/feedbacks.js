@@ -16,14 +16,14 @@ const upload = multer({ storage });
 
 router.get(
   '/',
-  authRequired,
+  authRequired(),
   rolesRequired(['ADMIN']),
   validateRequest(feedbacksValidations.getAllFeedbacks),
   feedbacksControllers.getAllFeedbacks,
 );
 router.post(
   '/',
-  authRequired,
+  authRequired(),
   rolesRequired(['USER', 'DRIVER']),
   upload.array('images'),
   validateRequest(feedbacksValidations.createFeedbacks),

@@ -21,7 +21,7 @@ router.get(
 );
 router.post(
   '/',
-  authRequired,
+  authRequired(),
   rolesRequired(['ADMIN']),
   upload.array('images'),
   validateRequest(productsValidations.createProduct),
@@ -29,7 +29,7 @@ router.post(
 );
 router.patch(
   '/:productId',
-  authRequired,
+  authRequired(),
   rolesRequired(['ADMIN']),
   upload.array('images'),
   validateRequest(productsValidations.updateProduct),
@@ -37,7 +37,7 @@ router.patch(
 );
 router.delete(
   '/:productId',
-  authRequired,
+  authRequired(),
   rolesRequired(['ADMIN']),
   validateRequest(productsValidations.deleteProduct),
   productsControllers.deleteProduct,

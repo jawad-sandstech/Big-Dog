@@ -11,26 +11,26 @@ const router = express.Router();
 
 router.get(
   '/:jobId',
-  authRequired,
+  authRequired(),
   validateRequest(jobsValidations.getSingleJobRequest),
   jobsControllers.getSingleJobRequest,
 );
 router.get(
   '/:jobId/conversation-id',
-  authRequired,
+  authRequired(),
   validateRequest(jobsValidations.getConversationIdOfJobRequest),
   jobsControllers.getConversationIdOfJobRequest,
 );
 router.post(
   '/',
-  authRequired,
+  authRequired(),
   rolesRequired(['USER']),
   validateRequest(jobsValidations.createJob),
   jobsControllers.createJob,
 );
 router.patch(
   '/:jobId',
-  authRequired,
+  authRequired(),
   rolesRequired(['USER']),
   validateRequest(jobsValidations.updateJob),
   jobsControllers.updateJob,

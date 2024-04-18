@@ -32,7 +32,6 @@ model Users {
   updatedAt         DateTime            @updatedAt
   UserAddress       UserAddress[]
   UserOTP           UserOTP[]
-  UserStatus        UserStatus[]
   DriverDetails     DriverDetails[]
   UserPackages      UserPackages[]
   UserNotifications UserNotifications[]
@@ -47,6 +46,7 @@ model Users {
   UserVehicles      UserVehicles?
   UserRescueCharges UserRescueCharges?
   UserPreference    UserPreference?
+  UserStatus        UserStatus?
 }
 
 model UserAddress {
@@ -74,21 +74,25 @@ model UserOTP {
 
 model UserStatus {
   id       Int      @id @default(autoincrement())
-  userId   Int
+  userId   Int      @unique
   isOnline Boolean
   lastSeen DateTime
   User     Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model UserVehicles {
-  id        Int      @id @default(autoincrement())
-  userId    Int      @unique
-  car       String
-  model     String
-  about     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  User      Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                   Int      @id @default(autoincrement())
+  userId               Int      @unique
+  car                  String
+  model                String
+  about                String
+  numberOfOccupants    Int
+  parkingLotInfo       String
+  roadsideLocationSafe Boolean
+  numberOfMiles        Int
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  User                 Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model DriverDetails {

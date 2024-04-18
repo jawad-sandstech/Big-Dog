@@ -11,21 +11,21 @@ const router = express.Router();
 
 router.patch(
   '/:jobOfferId/accept',
-  authRequired,
+  authRequired(),
   rolesRequired(['DRIVER']),
   validateRequest(offersValidations.acceptJob),
   offersControllers.acceptJob,
 );
 router.patch(
   '/:jobOfferId/reject',
-  authRequired,
+  authRequired(),
   rolesRequired(['DRIVER']),
   validateRequest(offersValidations.rejectJob),
   offersControllers.rejectJob,
 );
 router.patch(
   '/:jobOfferId/confirm',
-  authRequired,
+  authRequired(),
   rolesRequired(['USER']),
   validateRequest(offersValidations.confirmJob),
   offersControllers.confirmJob,

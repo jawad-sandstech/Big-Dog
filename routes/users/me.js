@@ -11,19 +11,19 @@ const router = express.Router();
 
 router.get(
   '/',
-  authRequired,
+  authRequired(),
   validateRequest(meValidations.getMyProfile),
   meControllers.getMyProfile,
 );
 router.patch(
   '/',
-  authRequired,
+  authRequired(),
   validateRequest(meValidations.updateProfile),
   meControllers.updateProfile,
 );
 router.patch(
   '/update-location',
-  authRequired,
+  authRequired(),
   rolesRequired(['DRIVER']),
   validateRequest(meValidations.updateLocation),
   meControllers.updateLocation,

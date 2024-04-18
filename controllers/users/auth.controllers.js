@@ -70,7 +70,7 @@ const loginWithEmail = async (req, res) => {
 
     // await sendOtpEmail(email, otp);
 
-    const response = okResponse(null, 'OTP sent successfully.');
+    const response = okResponse({ otp }, 'OTP sent successfully.');
     return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);
@@ -111,7 +111,7 @@ const loginWithNumber = async (req, res) => {
 
     // await sendOtpSms(phoneNumber, otp);
 
-    const response = okResponse(null, 'OTP sent successfully.');
+    const response = okResponse({ otp }, 'OTP sent successfully.');
     return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);

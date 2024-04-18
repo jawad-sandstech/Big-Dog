@@ -19,7 +19,6 @@ Table Users {
   updatedAt DateTime [not null]
   UserAddress UserAddress [not null]
   UserOTP UserOTP [not null]
-  UserStatus UserStatus [not null]
   DriverDetails DriverDetails [not null]
   UserPackages UserPackages [not null]
   UserNotifications UserNotifications [not null]
@@ -34,6 +33,7 @@ Table Users {
   UserVehicles UserVehicles
   UserRescueCharges UserRescueCharges
   UserPreference UserPreference
+  UserStatus UserStatus
 }
 
 Table UserAddress {
@@ -61,7 +61,7 @@ Table UserOTP {
 
 Table UserStatus {
   id Int [pk, increment]
-  userId Int [not null]
+  userId Int [unique, not null]
   isOnline Boolean [not null]
   lastSeen DateTime [not null]
   User Users [not null]
@@ -73,6 +73,10 @@ Table UserVehicles {
   car String [not null]
   model String [not null]
   about String [not null]
+  numberOfOccupants Int [not null]
+  parkingLotInfo String [not null]
+  roadsideLocationSafe Boolean [not null]
+  numberOfMiles Int [not null]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
   User Users [not null]
@@ -399,7 +403,7 @@ Ref: UserAddress.userId > Users.id [delete: Cascade]
 
 Ref: UserOTP.userId > Users.id [delete: Cascade]
 
-Ref: UserStatus.userId > Users.id [delete: Cascade]
+Ref: UserStatus.userId - Users.id [delete: Cascade]
 
 Ref: UserVehicles.userId - Users.id [delete: Cascade]
 

@@ -10,13 +10,13 @@ const router = express.Router();
 
 router.get(
   '/',
-  authRequired,
+  authRequired(),
   validateRequest(campsiteValidations.getAllBookings),
   campsiteControllers.getAllBookings,
 );
 router.post(
   '/',
-  authRequired,
+  authRequired(),
   validateRequest(campsiteValidations.createBooking),
   campsiteControllers.createBooking,
 );

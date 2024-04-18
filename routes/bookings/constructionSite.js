@@ -10,13 +10,13 @@ const router = express.Router();
 
 router.get(
   '/',
-  authRequired,
+  authRequired(),
   validateRequest(constructionSiteValidations.getAllBookings),
   constructionSiteControllers.getAllBookings,
 );
 router.post(
   '/',
-  authRequired,
+  authRequired(),
   validateRequest(constructionSiteValidations.createBooking),
   constructionSiteControllers.createBooking,
 );

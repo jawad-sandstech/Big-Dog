@@ -11,21 +11,21 @@ const router = express.Router();
 
 router.get(
   '/',
-  authRequired,
+  authRequired(),
   rolesRequired(['ADMIN']),
   validateRequest(ordersValidations.getAllOrders),
   ordersControllers.getAllOrders,
 );
 router.get(
   '/:orderId',
-  authRequired,
+  authRequired(),
   rolesRequired(['ADMIN', 'USER']),
   validateRequest(ordersValidations.getSingleOrder),
   ordersControllers.getSingleOrder,
 );
 router.post(
   '/',
-  authRequired,
+  authRequired(),
   rolesRequired(['USER']),
   validateRequest(ordersValidations.createOrder),
   ordersControllers.createOrder,

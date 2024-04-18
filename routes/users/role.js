@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.patch(
   '/',
-  authRequired,
+  authRequired(false),
   validateRequest(roleValidations.updateRole),
   roleControllers.updateRole,
 );

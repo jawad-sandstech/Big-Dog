@@ -1,14 +1,29 @@
 const {
   okResponse,
   serverErrorResponse,
-  notFoundResponse,
-  unauthorizedResponse,
   updateSuccessResponse,
   badRequestResponse,
 } = require('generic-response');
 
 const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
+
+const getVehicleInfo = async (req, res) => {
+  const { userId } = req.user;
+
+  try {
+    const existingVehicle = await prisma.userVehicles.findFirst({
+      where: { userId },
+    });
+
+    const response = okResponse(existingVehicle);
+    return res.status(response.status.code).json(response);
+  } catch (error) {
+    logger.error(error.message);
+    const response = serverErrorResponse(error.message);
+    return res.status(response.status.code).json(response);
+  }
+};
 
 const addVehicleInfo = async (req, res) => {
   const { userId } = req.user;
@@ -41,29 +56,21 @@ const addVehicleInfo = async (req, res) => {
 };
 
 const updateVehicleInfo = async (req, res) => {
-  const { vehicleId: vehicleIdStr } = req.params;
   const { userId } = req.user;
   const data = req.body;
 
   try {
-    const vehicleId = Number(vehicleIdStr);
-
     const existingVehicle = await prisma.userVehicles.findFirst({
-      where: { id: vehicleId },
+      where: { userId },
     });
 
     if (!existingVehicle) {
-      const response = notFoundResponse(`Vehicle with id: ${vehicleId} not found.`);
-      return res.status(response.status.code).json(response);
-    }
-
-    if (existingVehicle.userId !== userId) {
-      const response = unauthorizedResponse();
+      const response = badRequestResponse('No Vehicle to update.');
       return res.status(response.status.code).json(response);
     }
 
     const updatedVehicle = await prisma.userVehicles.update({
-      where: { id: vehicleId },
+      where: { id: existingVehicle.id },
       data,
     });
 
@@ -77,6 +84,7 @@ const updateVehicleInfo = async (req, res) => {
 };
 
 module.exports = {
+  getVehicleInfo,
   addVehicleInfo,
   updateVehicleInfo,
 };

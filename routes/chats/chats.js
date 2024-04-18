@@ -10,13 +10,13 @@ const router = express.Router();
 
 router.get(
   '/:chatId',
-  authRequired,
+  authRequired(),
   validateRequest(chatsValidations.getAllMessages),
   chatsControllers.getAllMessages,
 );
 router.post(
   '/:chatId',
-  authRequired,
+  authRequired(),
   validateRequest(chatsValidations.createMessage),
   chatsControllers.createMessage,
 );

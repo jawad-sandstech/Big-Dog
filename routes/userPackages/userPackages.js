@@ -11,14 +11,14 @@ const router = express.Router();
 
 router.get(
   '/',
-  authRequired,
+  authRequired(),
   rolesRequired(['USER']),
   validateRequest(userPackageValidations.getCurrentPackage),
   userPackageControllers.getCurrentPackage,
 );
 router.post(
   '/',
-  authRequired,
+  authRequired(),
   rolesRequired(['USER']),
   validateRequest(userPackageValidations.buyPackage),
   userPackageControllers.buyPackage,

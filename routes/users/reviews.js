@@ -11,13 +11,13 @@ const router = express.Router({ mergeParams: true });
 
 router.get(
   '/',
-  authRequired,
+  authRequired(),
   validateRequest(reviewsValidations.getReviews),
   reviewsControllers.getReviews,
 );
 router.post(
   '/',
-  authRequired,
+  authRequired(),
   rolesRequired(['USER']),
   validateRequest(reviewsValidations.createReview),
   reviewsControllers.createReview,

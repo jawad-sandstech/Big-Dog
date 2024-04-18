@@ -18,6 +18,7 @@ const createPaymentIntent = async (user, packageDeal) => {
       packageId: packageDeal.id,
       packageName: packageDeal.name,
       packagePrice: packageDeal.price,
+      type: 'BOUGHT_PACKAGE',
     },
   });
 
@@ -54,10 +55,21 @@ const getCurrentPackage = async (req, res) => {
       return res.status(response.status.code).json(response);
     }
 
-    const response = okResponse({
-      UserPackages: user.UserPackages[0].Package,
-      UserRescueCharges: user.UserRescueCharges[0],
-    });
+    const userPackage = user?.UserPackages[0]?.Package;
+    const userRescueCharges = user.UserRescueCharges;
+
+    let responseData;
+
+    if (userPackage) {
+      responseData = {
+        userPackage,
+        userRescueCharges,
+      };
+    } else {
+      responseData = null;
+    }
+
+    const response = okResponse(responseData);
     return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);

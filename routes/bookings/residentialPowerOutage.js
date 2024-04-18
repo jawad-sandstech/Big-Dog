@@ -10,13 +10,13 @@ const router = express.Router();
 
 router.get(
   '/',
-  authRequired,
+  authRequired(),
   validateRequest(residentialPowerOutageValidations.getAllBookings),
   residentialPowerOutageControllers.getAllBookings,
 );
 router.post(
   '/',
-  authRequired,
+  authRequired(),
   validateRequest(residentialPowerOutageValidations.createBooking),
   residentialPowerOutageControllers.createBooking,
 );
