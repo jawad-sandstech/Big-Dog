@@ -57,7 +57,7 @@ const uploadPicture = async (req, res) => {
 
     await s3.send(command);
 
-    const response = updateSuccessResponse({ Key: `${folderName}/${randomImageName}` });
+    const response = createSuccessResponse({ Key: `${folderName}/${randomImageName}` });
     return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);

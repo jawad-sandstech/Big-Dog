@@ -22,10 +22,16 @@ router.get(
   feedbacksControllers.getAllFeedbacks,
 );
 router.post(
+  '/upload-picture',
+  authRequired(),
+  upload.single('image'),
+  validateRequest(feedbacksValidations.uploadPicture),
+  feedbacksControllers.uploadPicture,
+);
+router.post(
   '/',
   authRequired(),
   rolesRequired(['USER', 'DRIVER']),
-  upload.array('images'),
   validateRequest(feedbacksValidations.createFeedbacks),
   feedbacksControllers.createFeedbacks,
 );

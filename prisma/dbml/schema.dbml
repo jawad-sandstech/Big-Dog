@@ -281,7 +281,6 @@ Table FeedbackImages {
   id Int [pk, increment]
   feedbackId Int [not null]
   path String [not null]
-  isPrimary Boolean [not null]
   createdAt DateTime [default: `now()`, not null]
   Feedback Feedback [not null]
 }

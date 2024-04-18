@@ -6,41 +6,12 @@ const prisma = require('../../config/database.config');
 const logger = require('../../config/logger.config');
 const s3 = require('../../config/s3.config');
 
-const createFeedbackImages = async (feedbackId, images) => {
-  const folderName = 'feedback-images';
-
-  const createImagePromises = images.map(async (image) => {
-    const randomImageName = crypto.randomBytes(32).toString('hex');
-
-    const command = new PutObjectCommand({
-      Bucket: process.env.BUCKET_NAME,
-      Key: `${folderName}/${randomImageName}`,
-      Body: image.buffer,
-      ContentType: image.mimetype,
-    });
-
-    await s3.send(command);
-
-    return prisma.feedbackImages.create({
-      data: {
-        feedbackId,
-        originalName: image.originalname,
-        fileName: `${folderName}/${randomImageName}`,
-        mimetype: image.mimetype,
-        size: image.size,
-      },
-    });
-  });
-
-  await Promise.all(createImagePromises);
-};
-
 const augmentFeedbacksWithImageUrls = (feedbacks) => {
   feedbacks.forEach((feedback) => {
     if (feedback.FeedbackImages) {
       feedback.FeedbackImages = feedback.FeedbackImages.map((imageObject) => ({
         ...imageObject,
-        imageUrl: `${process.env.S3_ACCESS_URL}/${imageObject.fileName}`,
+        path: `${process.env.S3_ACCESS_URL}/${imageObject.fileName}`,
       }));
     }
   });
@@ -68,24 +39,51 @@ const getAllFeedbacks = async (req, res) => {
   }
 };
 
+const uploadPicture = async (req, res) => {
+  const { file } = req;
+
+  try {
+    const folderName = 'feedback-images';
+
+    const randomImageName = crypto.randomBytes(32).toString('hex');
+
+    const command = new PutObjectCommand({
+      Bucket: process.env.BUCKET_NAME,
+      Key: `${folderName}/${randomImageName}`,
+      Body: file.buffer,
+      ContentType: file.mimetype,
+    });
+
+    await s3.send(command);
+
+    const response = createSuccessResponse({ Key: `${folderName}/${randomImageName}` });
+    return res.status(response.status.code).json(response);
+  } catch (error) {
+    logger.error(error.message);
+    const response = serverErrorResponse(error.message);
+    return res.status(response.status.code).json(response);
+  }
+};
+
 const createFeedbacks = async (req, res) => {
-  const data = req.body;
-  const images = req.files;
+  const { images, ...data } = req.body;
   const { userId } = req.user;
 
   try {
     const feedback = await prisma.feedback.create({
       data: {
-        ...data,
         userId,
+        ...data,
+        FeedbackImages: {
+          createMany: {
+            data: images,
+          },
+        },
       },
+      include: { FeedbackImages: true },
     });
 
-    if (images.length) {
-      await createFeedbackImages(feedback.id, images);
-    }
-
-    const response = createSuccessResponse();
+    const response = createSuccessResponse(feedback);
     return res.status(response.status.code).json(response);
   } catch (error) {
     logger.error(error.message);
@@ -96,5 +94,6 @@ const createFeedbacks = async (req, res) => {
 
 module.exports = {
   getAllFeedbacks,
+  uploadPicture,
   createFeedbacks,
 };
