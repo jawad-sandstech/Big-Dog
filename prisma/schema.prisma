@@ -291,14 +291,12 @@ model Feedback {
 }
 
 model FeedbackImages {
-  id           Int      @id @default(autoincrement())
-  feedbackId   Int
-  originalName String
-  fileName     String
-  mimetype     String
-  size         Float
-  createdAt    DateTime @default(now())
-  Feedback     Feedback @relation(fields: [feedbackId], references: [id])
+  id         Int      @id @default(autoincrement())
+  feedbackId Int
+  path       String
+  isPrimary  Boolean
+  createdAt  DateTime @default(now())
+  Feedback   Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
 }
 
 model ResidentialPowerOutage {

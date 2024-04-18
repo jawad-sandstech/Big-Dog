@@ -280,10 +280,8 @@ Table Feedback {
 Table FeedbackImages {
   id Int [pk, increment]
   feedbackId Int [not null]
-  originalName String [not null]
-  fileName String [not null]
-  mimetype String [not null]
-  size Float [not null]
+  path String [not null]
+  isPrimary Boolean [not null]
   createdAt DateTime [default: `now()`, not null]
   Feedback Feedback [not null]
 }
@@ -447,4 +445,4 @@ Ref: OrderDetails.productId > Products.id
 
 Ref: Feedback.userId > Users.id
 
-Ref: FeedbackImages.feedbackId > Feedback.id
+Ref: FeedbackImages.feedbackId > Feedback.id [delete: Cascade]
